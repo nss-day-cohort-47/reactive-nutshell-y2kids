@@ -10,7 +10,6 @@ export const FriendList = () => {
     const getFriends = () => {
         return getAllFriends()
         .then(friendsFromAPI => {
-            console.log(friendsFromAPI)
             setFrineds(friendsFromAPI)
         });
     };
