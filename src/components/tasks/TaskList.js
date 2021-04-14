@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to display a list of all of the tasks. Also
+// this module gives instructions for how to handle the delete buttons and/or the checkboxes being clicked
+
 import React, { useState, useEffect } from 'react'
 import { getAllTasks, deleteTask } from '../modules/TaskManager'
 import { TaskCard } from './TaskCard'

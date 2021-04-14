@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to display a form to edit an existing task, and to handle
+// making those changes to the API, then display the updated information.
+
 import React, {useState, useEffect} from 'react'
 import {updateTask, getTaskById} from '../modules/TaskManager'
 import {useParams, useHistory} from 'react-router-dom'
