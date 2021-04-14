@@ -14,9 +14,9 @@ export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
         <div className="card">
            
             <div className="card-content">
-                <h3>Name: {event.name}</h3>
-                <h4>Date: {event.date}</h4>
-                <h4>Location: {event.location}</h4>
+                <h4>Name: {event.name}</h4>
+                <h5>Date: {event.date}</h5>
+                <h5>Location: {event.location}</h5>
 
                 <button type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button>
 
