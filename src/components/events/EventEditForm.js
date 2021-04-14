@@ -1,3 +1,6 @@
+// Author: Joel
+// Purpose: Edit form set to display when "edit" button is clicked on event Card. This function allows for the manipulation of event data already saved to the database.
+
 import React, { useState, useEffect } from "react";
 import { updateEvent, getEventById } from "../modules/EventManager"
 import { useParams, useHistory } from "react-router-dom";

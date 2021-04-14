@@ -1,3 +1,7 @@
+//Author: Joel
+// Purpose: Event card function accepts deconstructed obj (event) and functionality from event list and creates an HTML (jsx) representation.
+// Functions are specifically for the buttons.
+
 import React from "react";
 import "./Event.css";
 import { useHistory } from "react-router-dom";

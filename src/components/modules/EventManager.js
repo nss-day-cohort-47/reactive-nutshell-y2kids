@@ -1,3 +1,6 @@
+//Author: Joel
+//Purpose: Storing all functionality regarding event component's interaction with the database
+
 const remoteURL = "http://localhost:8088"
 
 export const getAllEvents = () => {

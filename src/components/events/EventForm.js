@@ -1,3 +1,7 @@
+// Author: Joel
+// Purpose: Displays a form when the "Add Event" button is selected. The form allows for the input of information to be stored as a new event obj to the database.
+// Access to the database is granted through the "save" button functionality. 
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addEvent } from '../modules/EventManager';
