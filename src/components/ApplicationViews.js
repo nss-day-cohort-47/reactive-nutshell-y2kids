@@ -36,7 +36,6 @@ export const ApplicationViews = () => {
       <Route exact path="/tasks/create">
         <TaskForm />
       </Route>
-<<<<<<< HEAD
 
       <Route exact path="/events">
         <EventList />
@@ -46,10 +45,6 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/events/create">
         <EventForm />
-=======
-      <Route exact path="/events">
-        {/* Render the component for the user's events */}
->>>>>>> main
       </Route>
     </>
   )
