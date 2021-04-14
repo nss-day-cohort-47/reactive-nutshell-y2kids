@@ -1,0 +1,51 @@
+/* Author: Bryson Goins. The purpose of this module is to style the Task components */
+
+.taskTracker {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskTopBar {
+    background-color: #007bff;
+    padding: 10px;
+}
+
+.listAllTasks {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    align-items: center;
+    width: 60%;
+    align-self: center;
+    border: 1px black solid;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 1px 1px 10px 5px #007bff;
+}
+
+.taskCard {
+    background-color: rgb(182, 182, 182);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 100px;
+    align-items: center;
+    box-shadow: 1px 1px 7px 1px #007bff;
+}
+
+.taskCard h5, .taskCard h4 {
+    width: 200px;
+}
+
+.taskCard input {
+    margin-left: 10px;
+}
+
+.btnBox {
+    display: flex;
+    margin-right: 10px;
+}
