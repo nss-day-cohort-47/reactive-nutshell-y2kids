@@ -6,8 +6,6 @@ import { MessageList } from './messages/MessageList'
 import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from './tasks/TaskForm'
 import { TaskEditForm } from './tasks/TaskEditForm'
-import { FriendList } from "./friends/FriendList"
-import { FriendForm } from "./friends/FriendForm"
 
 export const ApplicationViews = () => {
   return (
@@ -16,12 +14,15 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         {/* Render the component for news articles */}
       </Route>
+      
       <Route exact path="/friends">
         {/* Render the component for list of friends */}
       </Route>
+
       <Route exact path="/messages">
         <FriendList />
       </Route>
+
       <Route exact path="/friends/create">
           <FriendForm />
       </Route>
@@ -29,16 +30,19 @@ export const ApplicationViews = () => {
       <Route path="/messages">
         <MessageList />
       </Route>
-      {/* <Route exact path="/tasks">
+      
       <Route exact path="/tasks">
         <TaskList />
       </Route>
+
       <Route exact path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
+
       <Route exact path="/tasks/create">
         <TaskForm />
-      </Route> */}
+      </Route>
+
       <Route exact path="/events">
         {/* Render the component for the user's events */}
       </Route>
