@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { FriendList } from "./friends/FriendList"
 import { FriendForm } from "./friends/FriendForm"
+import { MessageList } from './messages/MessageList'
 
 export const ApplicationViews = () => {
   return (
@@ -19,7 +20,7 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route path="/messages">
-        {/* Render the component for the messages */}
+        <MessageList />
       </Route>
       {/* <Route exact path="/tasks">
         <TaskList />

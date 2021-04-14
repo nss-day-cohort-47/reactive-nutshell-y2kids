@@ -24,11 +24,17 @@ export const MessageList = () => {
     };
 
     useEffect(() =>{
-        getFriends();
+        getMessages();
     }, []);
 
     return (
         <>
+        <fieldset>
+            <h2 className="message__title">New Message: </h2>
+        </fieldset>
+        <div className="form-group">
+            <input type="text" id="message" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder='type your message here' value={message.message} />
+        </div>
         <section className="sectoin__content">
             <button type="button" className="btn" onClick={() => [history.push('/messages/')]}>Save Message</button>
         </section>
