@@ -28,12 +28,18 @@ export const EventList = () => {
     };
 
     const checkEventDate = () => {
-        let currentDate = new Date();
-        let eventDate = mainEvent.date
-        console.log(currentDate);
-        console.log(eventDate)
+        let currentDate = new Date().getTime();
+        let eventDate = new Date(mainEvent.date).getTime();
+        let timeDifference = currentDate - eventDate
+        console.log("current", currentDate);
+        console.log("event", eventDate)
+        console.log(timeDifference)
         
-    //  if (eventDate - currentDate === 0 )
+     if (eventDate - currentDate < 0 ) {
+         deleteEvent(mainEvent.id)
+     } else {
+         console.log("event is good")
+     }
     }
     checkEventDate()
     
