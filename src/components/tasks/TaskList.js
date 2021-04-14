@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { getAllTasks, deleteTask } from '../modules/TaskManager'
 import { TaskCard } from './TaskCard'
 import { useHistory } from 'react-router-dom'
+import { updateTask } from '../modules/TaskManager'
+import './TaskList.css'
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
@@ -24,7 +26,11 @@ export const TaskList = () => {
         getAllTasks()
         .then(allTasks => {
             const targetedTask = allTasks.find(task => task.id === parseInt(taskId))
-            console.log(targetedTask) //this is the object that needs to be set to isCompleted: true
+            targetedTask.isComplete = true
+            return targetedTask
+        })
+        .then(updatedTask => {
+            updateTask(updatedTask)
         })
     }
 
@@ -32,7 +38,7 @@ export const TaskList = () => {
 
     useEffect(() => {
         getTasks();
-    }, [])
+    }, [handleCheckboxClick])
 
     return (
         <div className="taskTracker">
