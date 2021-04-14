@@ -1,9 +1,11 @@
+//Author: Bryson Goins. The purpose of this module is to display the form for adding a new task to the API.
+
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { addTask } from '../modules/TaskManager'
 
 export const TaskForm = () => {
-    const [task, setTask] = useState({});
+    const [task, setTask] = useState({name: ""});
     const history = useHistory();
 
     const handleInputChange = (event) => {

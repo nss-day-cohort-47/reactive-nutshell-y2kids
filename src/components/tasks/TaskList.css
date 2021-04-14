@@ -1,3 +1,5 @@
+/* Author: Bryson Goins. The purpose of this module is to style the Task components */
+
 .taskTracker {
     display: flex;
     flex-direction: column;

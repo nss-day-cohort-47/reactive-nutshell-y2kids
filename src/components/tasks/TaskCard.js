@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to display a 'card' for each task in the API.
+// Also, you can initiate an Edit or Delete for that task from here.
+
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import './TaskList.css'

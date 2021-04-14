@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to display a list of all of the tasks. Also
+// this module gives instructions for how to handle the delete buttons and/or the checkboxes being clicked
+
 import React, { useState, useEffect } from 'react'
 import { getAllTasks, deleteTask } from '../modules/TaskManager'
 import { TaskCard } from './TaskCard'
@@ -7,6 +10,7 @@ import './TaskList.css'
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
+    const [checkbox, setCheckbox] = useState(false);
     const history = useHistory();
 
     const getTasks = () => {
@@ -31,6 +35,10 @@ export const TaskList = () => {
         })
         .then(updatedTask => {
             updateTask(updatedTask)
+            return true
+        })
+        .then(() => {
+            getTasks().then(setCheckbox(true))
         })
     }
 
@@ -38,7 +46,7 @@ export const TaskList = () => {
 
     useEffect(() => {
         getTasks();
-    }, [handleCheckboxClick])
+    }, [])
 
     return (
         <div className="taskTracker">

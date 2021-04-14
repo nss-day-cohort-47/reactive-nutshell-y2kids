@@ -3,6 +3,11 @@ import { Route } from "react-router-dom"
 import { FriendList } from "./friends/FriendList"
 import { FriendForm } from "./friends/FriendForm"
 import { MessageList } from './messages/MessageList'
+import { TaskList } from "./tasks/TaskList"
+import { TaskForm } from './tasks/TaskForm'
+import { TaskEditForm } from './tasks/TaskEditForm'
+import { FriendList } from "./friends/FriendList"
+import { FriendForm } from "./friends/FriendForm"
 
 export const ApplicationViews = () => {
   return (
@@ -12,9 +17,11 @@ export const ApplicationViews = () => {
         {/* Render the component for news articles */}
       </Route>
       <Route exact path="/friends">
+        {/* Render the component for list of friends */}
+      </Route>
+      <Route exact path="/messages">
         <FriendList />
       </Route>
-
       <Route exact path="/friends/create">
           <FriendForm />
       </Route>
@@ -23,6 +30,7 @@ export const ApplicationViews = () => {
         <MessageList />
       </Route>
       {/* <Route exact path="/tasks">
+      <Route exact path="/tasks">
         <TaskList />
       </Route>
       <Route exact path="/tasks/:taskId(\d+)/edit">
