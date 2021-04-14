@@ -7,20 +7,10 @@ import './FriendForm.css'
 export const FriendForm = () => {
     
     const [friend, setFriend] = useState({});
-    // const [user, setUser] = useState({});
 
     const [isLoading, setIsLoading] = useState(false);
 
     const history = useHistory();
-
-    // useEffect(() => {
-    //     getAllUsers()
-    //     .then(user => {
-    //         console.log(user)
-    //         setUser(user)
-    //         setIsLoading(false);
-    //     })
-    // }, [])
 
     const handleControlledInputChange = (event) => {
         const newFriend = { ...friend }

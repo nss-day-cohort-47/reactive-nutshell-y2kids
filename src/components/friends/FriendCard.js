@@ -9,11 +9,11 @@ export const FriendCard = ({ friend, handleDeleteFriend }) => {
             <div className="card-content">
                 <h3>Name: <span className="card-friendName">{friend.user?.name}</span></h3>
                 <p></p>
-                <Link to={`/friends/${friend.id}`}>
+                {/* <Link to={`/friends/${friend.id}`}>
                     <button>Details</button>
-                </Link>
+                </Link> */}
                 <button type="button" onClick={() => handleDeleteFriend(friend.id)}>Delete</button>
-                <button type="button" onClick={() => history.push(`/friends/${friend.id}/edit`)}>Edit</button>
+                {/* <button type="button" onClick={() => history.push(`/friends/${friend.id}/edit`)}>Edit</button> */}
             </div>
         </div>
     )
