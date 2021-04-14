@@ -29,7 +29,7 @@ export const FriendList = () => {
             <button type="button" className="btn" onClick={() => {history.push("/friends/create")}}>Add Friend</button>
         </section>
             <div className="container-cards">
-                {friends.map(friend => <FriendCard key={friends.id} friend={friend} handleDeleteFriend={handleDeleteFriend}/>)}
+                {friends.map(friend => <FriendCard key={friend.id} friend={friend} handleDeleteFriend={handleDeleteFriend}/>)}
             </div>
         </>
     )
