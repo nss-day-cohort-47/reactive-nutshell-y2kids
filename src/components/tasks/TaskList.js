@@ -7,6 +7,7 @@ import './TaskList.css'
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
+    const [checkbox, setCheckbox] = useState(false);
     const history = useHistory();
 
     const getTasks = () => {
@@ -31,6 +32,10 @@ export const TaskList = () => {
         })
         .then(updatedTask => {
             updateTask(updatedTask)
+            return true
+        })
+        .then(() => {
+            getTasks().then(setCheckbox(true))
         })
     }
 
@@ -38,7 +43,7 @@ export const TaskList = () => {
 
     useEffect(() => {
         getTasks();
-    }, [handleCheckboxClick])
+    }, [])
 
     return (
         <div className="taskTracker">
