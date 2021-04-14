@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 
 
 export const MessageList = () => {
+    const [message, setMessage] = useState([]);
     const [messages, setMessages] = useState([]);
     const history = useHistory();
 
@@ -17,6 +18,16 @@ export const MessageList = () => {
             setMessages(messagesFromAPI)
         });
     };
+
+    const handleControlledInputChange = (event) => {
+        const newMessage = { ...message }
+		let selectedVal = event.target.value
+		if (event.target.id.includes("Id")) {
+			selectedVal = parseInt(selectedVal)
+		}
+		newMessage[event.target.id] = selectedVal
+		setMessage(newMessage)
+    }
 
     const handleDeleteMessage = (id) => {
         deleteMessage(id)
