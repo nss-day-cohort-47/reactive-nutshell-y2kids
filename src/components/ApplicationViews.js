@@ -3,6 +3,10 @@ import { Route } from "react-router-dom"
 import { EventList } from "./events/EventList"
 import { EventEditForm } from "./events/EventEditForm"
 import { EventForm } from "./events/EventForm"
+// import { Login } from "../components/auth/Login"
+// import { Register } from "../components/auth/Register"
+import { FriendList } from "./friends/FriendList"
+import { FriendForm } from "./friends/FriendForm"
 
 export const ApplicationViews = () => {
   return (
@@ -11,9 +15,14 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         {/* Render the component for news articles */}
       </Route>
-      <Route path="/friends">
-        {/* Render the component for list of friends */}
+      <Route exact path="/friends">
+        <FriendList />
       </Route>
+
+      <Route exact path="/friends/create">
+          <FriendForm />
+      </Route>
+
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>

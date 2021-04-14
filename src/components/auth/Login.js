@@ -16,7 +16,7 @@ export const Login = () => {
     }
 
 
-    const existingUserCheck = () => {
+  const existingUserCheck = () => {
         // If your json-server URL is different, please change it below!
         return fetch(`http://localhost:8088/users?email=${loginUser.email}`)
             .then(res => res.json())
