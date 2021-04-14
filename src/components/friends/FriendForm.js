@@ -1,3 +1,6 @@
+//Author: B.J. Golden
+//the purpose of this form is to add a friend, as well as prevent the same user being added multiple times. Users should not be allowed to add friends that do not exist as users. 
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addFriend, getAllFriends } from '../modules/FriendManager';

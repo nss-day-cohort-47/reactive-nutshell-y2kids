@@ -1,3 +1,6 @@
+//Author:  B.J. Golden
+//the purpose of this card is to display the JSX to the dom for the friendlist. 
+
 import React from 'react';
 import './Friend.css'
 import { Link, useHistory } from 'react-router-dom';

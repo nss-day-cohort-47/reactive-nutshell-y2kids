@@ -1,7 +1,5 @@
 import React from "react"
 import { Route } from "react-router-dom"
-// import { Login } from "../components/auth/Login"
-// import { Register } from "../components/auth/Register"
 import { FriendList } from "./friends/FriendList"
 import { FriendForm } from "./friends/FriendForm"
 
@@ -23,7 +21,7 @@ export const ApplicationViews = () => {
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
-      <Route exact path="/tasks">
+      {/* <Route exact path="/tasks">
         <TaskList />
       </Route>
       <Route exact path="/tasks/:taskId(\d+)/edit">
@@ -31,7 +29,7 @@ export const ApplicationViews = () => {
       </Route>
       <Route exact path="/tasks/create">
         <TaskForm />
-      </Route>
+      </Route> */}
       <Route exact path="/events">
         {/* Render the component for the user's events */}
       </Route>
