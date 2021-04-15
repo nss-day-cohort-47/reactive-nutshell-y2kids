@@ -1,7 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
-// import { Login } from "../components/auth/Login"
-// import { Register } from "../components/auth/Register"
+import { ArticleList } from "./articles/ArticleList"
+import {ArticleAddForm } from "./articles/ArticleAddForm"
+import {ArticleEditForm} from "./articles/ArticleEditForm"
 import { FriendList } from "./friends/FriendList"
 import { FriendForm } from "./friends/FriendForm"
 
@@ -16,6 +17,10 @@ export const ApplicationViews = () => {
       <Route path="/create">
         {/* Render the form to add new article */}
       <ArticleAddForm />
+      </Route>
+      <Route path="/:articleId(\d+)/edit">
+        {/* Render the edit form to edit an existing article */}
+      <ArticleEditForm />
       </Route>
       <Route exact path="/friends">
         <FriendList />

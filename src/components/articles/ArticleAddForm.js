@@ -4,10 +4,15 @@ import {addArticle} from "../modules/ArticleManager";
 
 export const ArticleAddForm = () => {
 
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
+    const timeStamp = Date.now();
+
     const [article, setArticle] = useState({
+        userId:currentUser,
+        url:"",
         title: "",
         synopsis: "",
-        url:"",
+        timestamp:new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timeStamp)
         });
     
      const [isLoading, setIsLoading] = useState(false);

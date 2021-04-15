@@ -1,78 +1,67 @@
-import React, { useState, useEffect } from "react"
-import AnimalManager from "../../modules/AnimalManager"
-import "./AnimalForm.css"
+import React, {useState, useEffect} from "react";
+import { useHistory, useParams } from "react-router";
+import {updateArticle,getArticlesById} from "../modules/ArticleManager"
 
-export const AnimalEditForm = () => {
-  const [animal, setAnimal] = useState({ name: "", breed: "" });
-  const [isLoading, setIsLoading] = useState(false);
+export const ArticleEditForm = () => {
+const [article, setArticle]= useState({title:"",synopsis:"",url:""});
+const [isLoading, setIsLoading]= useState(false);
 
-  const {animalId} = useParams();
-  const history = useHistory();
+const {articleId} = useParams();
+const history = useHistory();
 
-  const handleFieldChange = evt => {
-    const stateToChange = { ...animal };
-    stateToChange[evt.target.id] = evt.target.value;
-    setAnimal(stateToChange);
-  };
+const handleFieldChange = (event) =>{
+    const stateToChange={...article};
+    stateToChange[event.target.id]= event.target.value;
+    setArticle(stateToChange);
+};
 
-  const updateExistingAnimal = evt => {
-    evt.preventDefault()
+const updateExistingArticle = (event) => {
+    event.preventDefault()
     setIsLoading(true);
-
-    // This is an edit, so we need the id
-    const editedAnimal = {
-      id: props.match.params.animalId,
-      name: animal.name,
-      breed: animal.breed
+    
+    const editedArticle = {
+        id:articleId,
+        title:article.title,
+        synopsis:article.synopsis,
+        url:article.url
     };
-
-  AnimalManager.update(editedAnimal)
-    .then(() => history.push("/animals")
+    
+    updateArticle(editedArticle)
+    .then(()=> history.push("/")
     )
-  }
-
-  useEffect(() => {
-    AnimalManager.getAnimalById(animalId)
-      .then(animal => {
-        setAnimal(animal);
-        setIsLoading(false);
-      });
-  }, []);
-
-  return (
-    <>
-      <form>
+}
+    
+    useEffect(()=>{
+        getArticlesById(articleId)
+        .then(article => {
+            setArticle(article);
+            setIsLoading(false);
+        });
+    },[]);
+    
+return (
+    <form className="articleEditForm">
+            <h2 className="articleEditForm__title">Edit Article</h2>
         <fieldset>
-          <div className="formgrid">
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="name"
-              value={animal.name}
-            />
-            <label htmlFor="name">Animal name</label>
-
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="breed"
-              value={animal.breed}
-            />
-            <label htmlFor="breed">Breed</label>
-          </div>
-          <div className="alignRight">
-            <button
-              type="button" disabled={isLoading}
-              onClick={updateExistingAnimal}
-              className="btn btn-primary"
-            >Submit</button>
-          </div>
+            <div>
+                <label>News Title:</label>
+                <input type="text" id="title" onChange={handleFieldChange} required autoFocus className="from-control" value={article.title} />
+            </div>
         </fieldset>
-      </form>
-    </>
-  );
+        <fieldset>
+            <div>
+                <label>Synopsis:</label>
+                <input type="text" id="synopsis" onChange={handleFieldChange} required autoFocus className="form-control" value={article.synopsis}/>
+            
+            </div>
+        </fieldset>
+        <fieldset>
+            <div>
+                <label>URL:</label>
+                <input type="text" id="url" onChange={handleFieldChange} required autoFocus className="form-control" value={article.url}/>
+            </div>
+        </fieldset>
+            <button className="btn btn-primary" disabled={isLoading} onClick={updateExistingArticle}>Update Article</button>
+    </form>
+    )
 }

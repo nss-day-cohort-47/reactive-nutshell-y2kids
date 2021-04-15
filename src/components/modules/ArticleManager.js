@@ -1,7 +1,7 @@
 const remoteURL = "http://localhost:8088"
 
 export const getArticlesById = (articleId) => {
-    return fetch(`${remoteURL}/${articleId}`)
+    return fetch(`${remoteURL}/articles/${articleId}`)
     .then(res =>res.json())
 }
 
@@ -25,3 +25,13 @@ export const addArticle = (newArticle) => {
         body:JSON.stringify(newArticle)
     }).then(res => res.JSON)
 }
+
+export const updateArticle = (editedArticle) => {
+    return fetch(`${remoteURL}/articles/${editedArticle.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedArticle)
+    }).then(data => data.json());
+  }
