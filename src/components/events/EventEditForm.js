@@ -60,6 +60,7 @@ export const EventEditForm = () => {
         <form>
           <fieldset>
             <div className="formgrid">
+            <label htmlFor="name">Event Name</label>
               <input
                 type="text"
                 required
@@ -68,8 +69,8 @@ export const EventEditForm = () => {
                 id="name"
                 value={event.name}
               />
-              <label htmlFor="name">Event Name</label>
-  
+              
+              <label htmlFor="date">Date</label>
               <input
                 type="text"
                 required
@@ -78,8 +79,8 @@ export const EventEditForm = () => {
                 id="date"
                 value={event.date}
               />
-              <label htmlFor="date">Date</label>
-
+              
+              <label htmlFor="location">Location</label>
               <input
                 type="text"
                 required
@@ -88,7 +89,7 @@ export const EventEditForm = () => {
                 id="location"
                 value={event.location}
               />
-              <label htmlFor="location">Location</label>
+              
             </div>
   
             

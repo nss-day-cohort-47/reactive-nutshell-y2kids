@@ -66,7 +66,7 @@ return (
         <fieldset>
             <div className="form-group">
                 <label htmlFor="location">Location:</label>
-                <input type="text" id="location" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Event location" value={event.location} />
+                <input type="text" id="location" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Event city" value={event.location} />
             </div>
         </fieldset>
 
