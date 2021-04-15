@@ -1,0 +1,17 @@
+.message__input {
+    display: flex;
+    margin: 1em;
+
+}
+
+.message__box {
+    background-color: #343A40;
+    color:#007BFF;
+}
+
+.message__save--btn {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2em;
+    padding-right: 2em;
+}

@@ -24,6 +24,11 @@ export const updateMessage = (editedMessage) => {
     }).then(res => res.json());
 }
 
+export const getMessageById = (id) => {
+    return fetch(`${remoteURL}/messages/${id}`)
+    .then(res => res.json())
+}
+
 export const addMessage = (newMessage) => {
     return fetch(`${remoteURL}/messages`, {
         method: "POST",
