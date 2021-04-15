@@ -11,11 +11,8 @@ export const MessageCard = ({message, handleDeleteMessage}) => {
     return (
         <div className='card'>
             <div className="card-content">
-                <h3>Name: {message.userId.name} <span className="card-message">
-                    {message.message}</span></h3>
-                    {/* <Link to={`/messages/${message.id}`}>
-                    <button>Details</button>
-                    </Link> */}
+                <h3>{message.user.name}: </h3><h4><span className="card-message">
+                    </span>{message.message}</h4>
                     <button type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
                     {/* <button type="button" onClick={() => history.push(`/messages/${message.id}/edit`)}>Edit</button> */}
             </div>

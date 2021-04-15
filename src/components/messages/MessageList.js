@@ -9,21 +9,26 @@ import { getAllUsers } from '../modules/UserManager'
 
 
 export const MessageList = () => {
-    // getAllUsers()
-    // .then(users => {
+    
+    // const getUsers = () => {
+    //     getAllUsers()
+    //     .then(users => {
     //     const userObj = users.find(user => user.id)
-    //     userObj
-    // })
+    //     console.log(userObj)
+    //     return userObj
+    //     })
+    // }
+    // console.log()
 
-    const messageUserId = parseInt(sessionStorage.getItem("nutshell_user"));
+    const messageUserId = parseInt(sessionStorage.getItem("nutshell_user"))
     const messageDate = new Date().getTime();
     
     const [message, setMessage] = useState({
         userId: messageUserId,
         date: messageDate,
         message: ""
-
     });
+
     const [messages, setMessages] = useState([]);
     const history = useHistory();
 
@@ -48,8 +53,13 @@ export const MessageList = () => {
         event.preventDefault()
         
         addMessage(message)
-        .then(() => history.push(`/messages`))    
+        .then(() => getMessages()
+        .then(() => history.push(`/messages`))) 
+        console.log(message);   
     }
+    //TODO:
+    //reset the input field after message is saved.
+    //only allow messages to display in the chat field without expanding the window.
 
     const handleDeleteMessage = (id) => {
         deleteMessage(id)
@@ -62,6 +72,9 @@ export const MessageList = () => {
 
     return (
         <>
+        <div className="container-cards">
+            {messages.map(message => <MessageCard key={message.id} message={message} handleDeleteMessage={handleDeleteMessage}/>)}
+        </div>
         <fieldset>
             <h2 className="message__title">New Message: </h2>
         </fieldset>
@@ -69,11 +82,8 @@ export const MessageList = () => {
             <input type="text" id="message" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder='type your message here' value={messages.message} />
         </div>
         <section className="sectoin__content">
-            <button type="button" className="btn" onClick={handleClickSaveMessage}>Save Message</button>
+            <button type="button"  onClick={handleClickSaveMessage}>Save Message</button>
         </section>
-        <div className="container-cards">
-            {messages.map(message => <MessageCard key={message.id} message={message} handleDeleteMessage={handleDeleteMessage}/>)}
-        </div>
         </>
     )
 }
