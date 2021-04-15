@@ -10,6 +10,7 @@ import { TaskEditForm } from './tasks/TaskEditForm'
 // import { Register } from "../components/auth/Register"
 import { FriendList } from "./friends/FriendList"
 import { FriendForm } from "./friends/FriendForm"
+import { MsgBox } from './messages/privateMessages/MsgBox'
 
 export const ApplicationViews = () => {
   return (
@@ -19,10 +20,13 @@ export const ApplicationViews = () => {
         {/* Render the component for news articles */}
       </Route>
       <Route exact path="/friends">
-        {/* Render the component for list of friends */}
+        <FriendList />
       </Route>
       <Route exact path="/messages">
-        <FriendList />
+
+      </Route>
+      <Route exact path="/messages/private">
+        <MsgBox />
       </Route>
       <Route exact path="/friends/create">
           <FriendForm />
