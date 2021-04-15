@@ -9,7 +9,21 @@ import { getAllUsers } from '../modules/UserManager'
 
 
 export const MessageList = () => {
-    const [message, setMessage] = useState([]);
+    // getAllUsers()
+    // .then(users => {
+    //     const userObj = users.find(user => user.id)
+    //     userObj
+    // })
+
+    const messageUserId = parseInt(sessionStorage.getItem("nutshell_user"));
+    const messageDate = new Date().getTime();
+    
+    const [message, setMessage] = useState({
+        userId: messageUserId,
+        date: messageDate,
+        message: ""
+
+    });
     const [messages, setMessages] = useState([]);
     const history = useHistory();
 
@@ -32,15 +46,9 @@ export const MessageList = () => {
 
     const handleClickSaveMessage = (event) => {
         event.preventDefault()
-        // saveInputValue =  parseInt(sessionStorage.getItem("nutshell_user"))
-        // getAllUsers()
-        // .then(users => {
-        //     const userObj = users.find(user => user.name.id === saveInputValue);
-
-
-        addMessage(message)
-        .then(() => history.push(`/messages`))
         
+        addMessage(message)
+        .then(() => history.push(`/messages`))    
     }
 
     const handleDeleteMessage = (id) => {
