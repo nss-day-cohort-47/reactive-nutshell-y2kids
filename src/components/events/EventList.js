@@ -45,10 +45,10 @@ export const EventList = () => {
     }
     checkEventDate()
 
-    // const handleShowWeather = (date, location) => {
-    //     showWeather(date, location)
-    //     .then(() => weatherDetail())
-    // }
+    const handleShowWeather = (date, location) => {
+        getFutureWeather(date, location)
+        .then(() => weatherDetail())
+    }
 
     useEffect(() => {
         getEvents();
@@ -81,6 +81,9 @@ export const EventList = () => {
                                 event={event}
                                 // handleShowWeather={handleShowWeather}
                                 handleDeleteEvent={handleDeleteEvent} />)}
+
+                            <WeatherCard />
+                               
                     </div>
 
                 </div>

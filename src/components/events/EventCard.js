@@ -27,6 +27,10 @@ export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
 
             </div>
 
+            <div className="weatherCard">
+                
+            </div>
+
         </div>
 
     );
