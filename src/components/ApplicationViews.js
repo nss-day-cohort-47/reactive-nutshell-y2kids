@@ -1,5 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { EventList } from "./events/EventList"
+import { EventEditForm } from "./events/EventEditForm"
+import { EventForm } from "./events/EventForm"
 import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from './tasks/TaskForm'
 import { TaskEditForm } from './tasks/TaskEditForm'
@@ -33,8 +36,15 @@ export const ApplicationViews = () => {
       <Route exact path="/tasks/create">
         <TaskForm />
       </Route>
+
       <Route exact path="/events">
-        {/* Render the component for the user's events */}
+        <EventList />
+      </Route>
+      <Route path="/events/:eventId(\d+)/edit">
+        <EventEditForm />
+      </Route>
+      <Route path="/events/create">
+        <EventForm />
       </Route>
     </>
   )
