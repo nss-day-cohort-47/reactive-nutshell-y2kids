@@ -33,18 +33,18 @@ export const EventList = () => {
     };
 
     const checkEventDate = () => {
-        
-        if (mainEvent === true){
-           let currentDate = new Date().getTime();
-           let eventDate = new Date(mainEvent.date).getTime();
-           let timeDifference = eventDate - currentDate 
-           if (timeDifference < 0 ) {
-               deleteEvent(mainEvent.id)
+
+        if (mainEvent === true) {
+            let currentDate = new Date().getTime();
+            let eventDate = new Date(mainEvent.date).getTime();
+            let timeDifference = eventDate - currentDate
+            if (timeDifference < 0) {
+                deleteEvent(mainEvent.id)
+            }
         }
-     } 
     }
     checkEventDate()
-    
+
     // const handleShowWeather = (date, location) => {
     //     showWeather(date, location)
     //     .then(() => weatherDetail())
@@ -53,34 +53,45 @@ export const EventList = () => {
     useEffect(() => {
         getEvents();
     }, []);
-
-    return (
-        <>
-            <div className="event Component">
-                <div className="container-cards">
-                    <div className="mainCard">
-                        <h2>Name: {mainEvent?.name}</h2>
-                        <h3>Date: {mainEvent?.date}</h3>
-                        <h3>Location: {mainEvent?.location}</h3>
-
-                        {/* <button type="button" onClick={() => handleShowWeather(mainEvent.date, mainEvent.location)}>Show Weather</button> */}
-
-                        <div className="card-buttons">
-                            <button type="button" onClick={() => history.push(`/events/${mainEvent?.id}/edit`)}>Edit</button>
-                            <button type="button" onClick={() => handleDeleteEvent(mainEvent?.id)}>Delete</button>
-                        </div>
-                    </div>
-                    {events.map(event =>
-                        <EventCard
-                            key={event.id}
-                            event={event}
-                            // handleShowWeather={handleShowWeather}
-                            handleDeleteEvent={handleDeleteEvent} />)}
-                </div>
+    
+    if (mainEvent) {
+        return (
+            <>
                 <button type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
-       </button>
-            </div>
-        </>
-    );
+             </button>
+
+                <div className="event Component">
+                    <div className="container-cards">
+                        <div className="mainCard">
+                            <h2>Name: {mainEvent.name}</h2>
+                            <h3>Date: {mainEvent.date}</h3>
+                            <h3>Location: {mainEvent.location}</h3>
+
+                            {/* <button type="button" onClick={() => handleShowWeather(mainEvent.date, mainEvent.location)}>Show Weather</button> */}
+
+                            <div className="card-buttons">
+                                <button type="button" onClick={() => history.push(`/events/${mainEvent.id}/edit`)}>Edit</button>
+                                <button type="button" onClick={() => handleDeleteEvent(mainEvent.id)}>Delete</button>
+                            </div>
+                        </div>
+                        {events.map(event =>
+                            <EventCard
+                                key={event.id}
+                                event={event}
+                                // handleShowWeather={handleShowWeather}
+                                handleDeleteEvent={handleDeleteEvent} />)}
+                    </div>
+
+                </div>
+            </>
+        );
+    } else {
+        return (
+                <button type="button" onClick={() => { history.push("/events/create") }}>
+                    New Event
+             </button>
+
+        )
+    }
 };
