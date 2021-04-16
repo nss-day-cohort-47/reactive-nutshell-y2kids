@@ -20,3 +20,10 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.btn__user__name {
+    background-color: #007BFF;
+    border-radius: 12px;
+    font-size: 20px;
+    font: bold;
+}
