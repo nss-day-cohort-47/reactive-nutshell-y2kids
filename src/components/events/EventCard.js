@@ -14,6 +14,7 @@ export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
         <div className="card">
            
             <div className="card-content">
+                <h4>User: {event.user}</h4>
                 <h4>Name: {event.name}</h4>
                 <h5>Date: {event.date}</h5>
                 <h5>Location: {event.location}</h5>

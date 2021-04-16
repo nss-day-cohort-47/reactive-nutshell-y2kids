@@ -67,6 +67,7 @@ export const EventList = () => {
                             <h2>Name: {mainEvent.name}</h2>
                             <h3>Date: {mainEvent.date}</h3>
                             <h3>Location: {mainEvent.location}</h3>
+                            <h4>User: {mainEvent.user.name}</h4>
 
                             {/* <button type="button" onClick={() => handleShowWeather(mainEvent.date, mainEvent.location)}>Show Weather</button> */}
 

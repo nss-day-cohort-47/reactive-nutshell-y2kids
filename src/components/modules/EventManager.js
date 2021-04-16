@@ -4,7 +4,7 @@
 const remoteURL = "http://localhost:8088"
 
 export const getAllEvents = () => {
-    return fetch(`${remoteURL}/events`)
+    return fetch(`${remoteURL}/events?_embed=users`)
     .then(result => result.json())
 }
 
