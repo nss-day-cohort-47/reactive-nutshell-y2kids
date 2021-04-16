@@ -39,11 +39,11 @@ export const ApplicationViews = () => {
           <FriendForm />
       </Route>
 
-      <Route path="/messages">
+      <Route exact path="/messages">
         <MessageList />
       </Route>
 
-      <Route path="/messages/:messageId(\d+)/edit">
+      <Route exact path="/messages/:messageId(\d+)/edit">
         <MessageEditForm />
       </Route>
       

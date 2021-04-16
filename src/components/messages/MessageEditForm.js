@@ -1,18 +1,26 @@
 //author: B.J. Golden
 //purpose: this form allows the logged in user to edit their messages. 
-//currently showing on the messages page underneath the message input box. need to possible route issue.
+
 
 import React, { useState, useEffect } from "react"
 import "./Message.css"
-import { updateMessage, getMessageById } from "../modules/MessageManager";
+import { updateMessage, getMessageById, getAllMessages } from "../modules/MessageManager";
 import { useParams, useHistory} from "react-router-dom";
 
 export const MessageEditForm = () => {
     const [message, setMessage] = useState({})
+    const [messages, setMessages] = useState({})
     const [isLoading, setIsLoading] = useState(false);
 
     const {messageId} = useParams();
     const history = useHistory();
+
+    const getMessages = () => {
+        return getAllMessages()
+        .then(messagesFromAPI => {
+            setMessages(messagesFromAPI)
+        });
+    };
 
     const handleFieldChange = evt => {
         const stateToChange = { ...message };
@@ -20,15 +28,6 @@ export const MessageEditForm = () => {
         setMessage(stateToChange);
       };
 
-    //   const handleControlledInputChange = (event) => {
-	// 	const newMessage = { ...message }
-	// 	let selectedVal = event.target.value
-	// 	if (event.target.id.includes("Id")) {
-	// 		selectedVal = parseInt(selectedVal)
-	// 	}
-	// 	newMessage[event.target.id] = selectedVal
-	// 	setMessage(newMessage)
-	// }
 
     const updateExistingMessage = (evt) => {
         evt.preventDefault()
@@ -36,13 +35,14 @@ export const MessageEditForm = () => {
     
         
         const editedMessage = {
-          id: message.userId,
-          name: message.name,
-          breed: message.breed,
-
+            userId: message.userId,
+            date: message.date,
+            message: message.message,
+            id: messageId
         };
     
       updateMessage(editedMessage)
+      .then(() => getMessages())
         .then(() => history.push("/messages")
         )
       }
@@ -57,16 +57,17 @@ export const MessageEditForm = () => {
     
       return (
         <>
+        <h2>Edit Message: </h2>
           <form className="messageForm">
             <fieldset>
               <div className="form-group">
-                  <label htmlFor="message">Message: </label>
+                  <label htmlFor="message"></label>
                 <input
                   type="text"
                   required
                   className="form-control"
                   onChange={handleFieldChange}
-                  id="edit__message"
+                  id="message"
                   value={message.message}
                 />
               </div>

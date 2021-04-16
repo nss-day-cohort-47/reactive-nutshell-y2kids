@@ -1,12 +1,13 @@
 //author: B.J. Golden
-//purpose: 
+//purpose: to allow logged in user to be able to use the public chat board and save and delete messages. 
 
 import React, { useState, useEffect } from "react";
 import { MessageCard } from './MessageCard';
 import { getAllMessages, deleteMessage, addMessage } from '../modules/MessageManager';
 import { useHistory } from 'react-router-dom';
 import './Message.css'
-import { getAllUsers } from '../modules/UserManager'
+// import { getAllUsers } from '../modules/UserManager'
+// import { MessageEditForm } from './MessageEditForm'
 
 
 export const MessageList = () => {
@@ -52,9 +53,7 @@ export const MessageList = () => {
             getMessages()}) 
        
     }
-    //TODO:
-    //reset the input field after message is saved.
-    //only allow messages to display in the chat field without expanding the window.
+    
 
     const handleDeleteMessage = (id) => {
         deleteMessage(id)
