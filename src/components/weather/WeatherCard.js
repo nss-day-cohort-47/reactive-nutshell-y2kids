@@ -6,9 +6,9 @@ import React from "react"
 export const CurrentWeatherCard=({weatherObj})=>{
     return(
         <div className="weatherCard">
-            <h3>Forcast For {weatherObj?.name}</h3>
-            <h4>{weatherObj?.weather[0].main}</h4>
-            <h4>{weatherObj?.main.temp}</h4>
+            <h3>Forcast For {weatherObj.name}</h3>
+            <h4>{weatherObj.weather[0].main}</h4>
+            <h4>{weatherObj.main.temp}</h4>
         </div>
     )
 }

@@ -8,7 +8,7 @@ import { getCurrentWeather } from '../modules/WeatherManager'
 
 export const ArticleList = () => {
     const [articles, setArticles] = useState([]);
-    const [weatherArr, setWeather] = useState([]);
+    const [weatherObj, setWeather] = useState({});
 
     const getArticles = () => {
         return getAllArticles().then(articlesFromAPI =>{
@@ -29,10 +29,11 @@ export const ArticleList = () => {
     };
     
     const handleShowWeather = () => {
-        getCurrentWeather()
-        .then(weatherFromAPI => setWeather(weatherFromAPI))
+    //     getCurrentWeather()
+    //     .then(weatherFromAPI => setWeather(weatherFromAPI))
+    const weather = getCurrentWeather()
+    setWeather(weather) 
     }
-    console.log(weatherArr)
 
         return(
             <>
@@ -44,7 +45,7 @@ export const ArticleList = () => {
                 {articles.map(article => <ArticleCard key={article.id} article={article} handleDeleteArticle={handleDeleteArticle}/>)}
                 </div>
             </div>
-            <CurrentWeatherCard weatherArr={weatherArr} />
+            {weatherObj.weather?<CurrentWeatherCard weatherObj={weatherObj} /> : null}
             </>
         );
 };
