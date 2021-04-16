@@ -40,7 +40,7 @@ export const MsgList = () => {
                 {messages.map(message => {
                     if (message.sentBySelf) {
                         return <SentMsgCard key={message.id} message={message} />
-                    } else if (message.receiverId === currentUserId) { //LOOK AT THIS LINE WHEN YOU GET BACK
+                    } else if (message.receiverId === parseInt(currentUserId)) { //LOOK AT THIS LINE WHEN YOU GET BACK
                         return <ReceivedMsgCard key={message.id} message={message} />
                     }
                 })}
