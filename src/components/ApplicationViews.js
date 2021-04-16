@@ -39,6 +39,10 @@ export const ApplicationViews = () => {
           <FriendForm />
       </Route>
 
+      <Route exact path="/friends/create/:userId(\d+)">
+          <FriendForm />
+      </Route>      
+
       <Route exact path="/messages">
         <MessageList />
       </Route>
