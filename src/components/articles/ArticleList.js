@@ -26,7 +26,7 @@ export const ArticleList = () => {
 
     return(
         <div className="article_cards">
-                <button type="button" className="btn" onClick={() => {history.push("/create")}}>
+                <button type="button" className="new-article-bttn" onClick={() => {history.push("/create")}}>
                 New Article
                 </button>
                 <div className="article-list">

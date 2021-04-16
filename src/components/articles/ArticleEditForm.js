@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
 import {updateArticle,getArticlesById} from "../modules/ArticleManager"
+import "./ArticleAddForm.css"
 
 export const ArticleEditForm = () => {
 const [article, setArticle]= useState({title:"",synopsis:"",url:""});

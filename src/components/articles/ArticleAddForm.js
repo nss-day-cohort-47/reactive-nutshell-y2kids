@@ -70,7 +70,7 @@ export const ArticleAddForm = () => {
                     <input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="URL" value={article.url}/>
                 </div>
             </fieldset>
-                <button className="btn btn-primary" onClick={handleClickSaveArticle}>Save Article</button>
+                <button className="saveArticle" onClick={handleClickSaveArticle}>Save Article</button>
         </form>
         )
     };
