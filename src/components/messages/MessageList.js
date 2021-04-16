@@ -66,6 +66,9 @@ export const MessageList = () => {
 
     return (
         <>
+        <div className="privateMessage">
+            <button type='button' onClick={() => history.push(`/messages/private`)}>Create Private Message:</button>
+        </div>
         <div className="container-cards">
             {messages.map(message => <MessageCard key={message.id} message={message} handleDeleteMessage={handleDeleteMessage}/>)}
         </div>
