@@ -1,5 +1,8 @@
+//Author: B.J. Golden
+//the purpose of this form is to add a friend, as well as prevent the same user being added multiple times. Users should not be allowed to add friends that do not exist as users. 
+
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { addFriend, getAllFriends } from '../modules/FriendManager';
 import { getAllUsers } from '../modules/UserManager'
 import './FriendForm.css'
@@ -11,6 +14,8 @@ export const FriendForm = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const history = useHistory();
+    const params = useParams();
+
 
     const handleControlledInputChange = (event) => {
         const newFriend = { ...friend }
@@ -28,6 +33,7 @@ export const FriendForm = () => {
         getAllUsers()
         .then(users => {
             const userObj = users.find(user => user.name.toLowerCase() === saveInputValue.toLowerCase());
+
             if (userObj === undefined){
                 window.alert("Please select an existing user")
                 return history.push(`/friends`)
@@ -40,9 +46,13 @@ export const FriendForm = () => {
             getAllFriends()
                 .then(friends => {
                     const currentFriend = friends.find(friend => friend.userId === newFriendship.userId);
+                    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
                     if (currentFriend )
                     {
                         window.alert("Friend already exists, please select a new friend.")
+                        return history.push(`/friends`)
+                    } if (currentUser){
+                        window.alert("you may not add yourself")
                         return history.push(`/friends`)
                     } else {
                         addFriend(newFriendship)
@@ -63,13 +73,6 @@ export const FriendForm = () => {
 
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div>
-                    <label>
-                        <input />
-                    </label>
-                </div>
-            </fieldset> */}
             <button type="button" className="btn btn-primary" onClick={handleClickSaveFriend}>Save Friend</button>
         </form>
     )

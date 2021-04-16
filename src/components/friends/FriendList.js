@@ -1,16 +1,19 @@
+//Author: B.J. Golden
+//the purpose of the friend list is to set the state of friends and handle the delete friend button. It also invokes the friend card which displays that JSX. 
+
 import React, { useState, useEffect } from "react";
 import { FriendCard } from './FriendCard';
 import { getAllFriends, getFriendById, deleteFriend, addFriend } from '../modules/FriendManager';
 import { useHistory } from 'react-router-dom';
 
 export const FriendList = () => {
-    const [friends, setFrineds] = useState([]);
+    const [friends, setFriends] = useState([]);
     const history = useHistory();
 
     const getFriends = () => {
         return getAllFriends()
         .then(friendsFromAPI => {
-            setFrineds(friendsFromAPI)
+            setFriends(friendsFromAPI)
         });
     };
 

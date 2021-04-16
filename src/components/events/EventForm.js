@@ -8,7 +8,9 @@ import { addEvent } from '../modules/EventManager';
 
 export const EventForm = () => {
 
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
     const [event, setEvent] = useState({
+        userId: currentUser,
         name:"",
         date:"",
         location:""
@@ -33,6 +35,8 @@ export const EventForm = () => {
         evt.preventDefault()
         setIsLoading(true)
 
+
+        const userId = event.userId
         const name = event.name
         const date = event.date
         const location = event.location
