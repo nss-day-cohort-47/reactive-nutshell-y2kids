@@ -53,7 +53,7 @@ export const MsgInput = () => {
             alert("Please choose a user to send a message to.")
         } else {
             addPM(messageObj).then(() => {
-                getPMs()
+                document.location.reload()
             })
         }
     }

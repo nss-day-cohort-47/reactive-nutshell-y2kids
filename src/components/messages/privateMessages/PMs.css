@@ -1,0 +1,13 @@
+.sentMsg {
+    background-color: greenyellow;
+}
+
+.receivedMsg {
+    background-color: skyblue;
+}
+
+.messagesContainer {
+    background-color: #343a40;
+    padding: 15px;
+    margin-top: 30px;
+}

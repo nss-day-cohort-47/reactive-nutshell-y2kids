@@ -1,4 +1,5 @@
 import React from 'react'
+import './PMs.css'
 
 export const ReceivedMsgCard = ({message}) => {
     return (

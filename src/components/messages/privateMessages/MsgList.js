@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { getAllPMs } from '../../modules/PrivateMessageManager'
 import { SentMsgCard } from './SentMsgCard'
 import { ReceivedMsgCard } from './ReceivedMsgCard'
+import './PMs.css'
 
 export const MsgList = () => {
     const [messages, setMessages] = useState([])
     const currentUserId = sessionStorage.getItem("nutshell_user");
-
+    
     const getPMs = () => {
         
         getAllPMs().then(allPMs => {
