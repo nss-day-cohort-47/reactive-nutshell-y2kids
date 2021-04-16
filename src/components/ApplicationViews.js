@@ -19,15 +19,14 @@ export const ApplicationViews = () => {
     <>
 
       <Route exact path="/">
-        {/* Render the component for news articles */}
         <ArticleList />
       </Route>
+      
       <Route path="/create">
-        {/* Render the form to add new article */}
       <ArticleAddForm />
       </Route>
+
       <Route path="/:articleId(\d+)/edit">
-        {/* Render the edit form to edit an existing article */}
       <ArticleEditForm />
       </Route>
       
