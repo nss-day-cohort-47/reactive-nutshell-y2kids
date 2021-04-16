@@ -51,7 +51,7 @@ export const EventList = () => {
         getCurrentWeather(location)
         .then(weatherFromAPI => setWeather(weatherFromAPI))
     }
-    console.log(weatherArr)
+    
     
 
     useEffect(() => {
