@@ -1,13 +1,59 @@
 .sentMsg {
     background-color: greenyellow;
+    width: 55%;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 20px;
+    align-self: flex-end;
 }
 
 .receivedMsg {
     background-color: skyblue;
+    width: 55%;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 20px;
 }
 
 .messagesContainer {
-    background-color: #343a40;
     padding: 15px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.PMcontainer {
+    background-color: #343a40;
+    width: 60%;
+    margin-bottom: 15px;
+    margin: auto;
     margin-top: 30px;
+    border: black solid 2px;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #50565c;
+}
+
+.nameOfSender {
+    font-weight: bold;
+}
+
+#userDropdown {
+    height: 35px;
+}
+
+#PMinputField {
+    border: solid black 2px;
+}
+
+#sendButton {
+    height: 35px;
+    width: 80px;
 }

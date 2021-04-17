@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { getAllUsers } from '../../modules/UserManager'
-import { addPM, getAllPMs } from '../../modules/PrivateMessageManager'
-import { useHistory } from 'react-router-dom'
+import { addPM } from '../../modules/PrivateMessageManager'
+import './PMs.css'
 
 
-export const MsgInput = () => {
+export const MsgInput = ({renderList}) => {
     const [users, setUsers] = useState([])
-    const [messages, setMessages] = useState([])
     const [messageObj, setMessageObj] = useState({
         userId: 0,
         receiverId: 0,
         message: ""
     })
-    const history = useHistory()
 
     const currentUserId = sessionStorage.getItem("nutshell_user")
 
@@ -39,21 +37,17 @@ export const MsgInput = () => {
         setMessageObj(newMessageObj)
     }
 
-    const getPMs = () => {
-        return getAllPMs()
-        .then(allPMs => {
-            setMessages(allPMs)
-        })
-    }
-
     const handleClickSend = (event) => {
         event.preventDefault()
 
         if (messageObj.userId === 0 || messageObj.receiverId === 0) {
             alert("Please choose a user to send a message to.")
         } else {
-            addPM(messageObj).then(() => {
-                document.location.reload()
+            let datedMessage = {...messageObj}
+            datedMessage.timestamp = Date.now()
+
+            addPM(datedMessage).then(() => {
+                renderList()
             })
         }
     }
@@ -66,6 +60,7 @@ export const MsgInput = () => {
 
     return (
         <div className="inputContainer">
+            <textarea id="PMinputField" name="PMinputField" rows="5" cols="50" placeholder="Type Your Message" onChange={handleMessageChange} />
             <select name="userDropdown" id="userDropdown" onChange={handleReceiverChange} >
                 <option value="default" selected disabled >Select a User</option>
                 {users.map(user => {
@@ -74,8 +69,7 @@ export const MsgInput = () => {
                     }
                 })}
             </select>
-            <textarea id="PMinputField" name="PMinputField" rows="5" cols="50" onChange={handleMessageChange} />
-            <button onClick={handleClickSend} >Send</button>
+            <button id="sendButton" onClick={handleClickSend} >Send</button>
         </div>
     )
 }

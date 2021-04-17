@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { getAllPMs } from '../../modules/PrivateMessageManager'
-import { SentMsgCard } from './SentMsgCard'
-import { ReceivedMsgCard } from './ReceivedMsgCard'
+import { MsgCard } from './MsgCard'
+import { MsgInput } from './MsgInput'
 import './PMs.css'
 
 export const MsgList = () => {
     const [messages, setMessages] = useState([])
     const currentUserId = sessionStorage.getItem("nutshell_user");
     
+    const scrollToEnd = () => {
+        const container = document.querySelector(".messagesContainer")
+        container.scrollTop = container.scrollHeight
+    }
+
     const getPMs = () => {
         
         getAllPMs().then(allPMs => {
@@ -29,29 +34,34 @@ export const MsgList = () => {
         .then(allMsgsArray => {
             setMessages(allMsgsArray)
         })
+        .then(() => {
+            scrollToEnd()
+        })
     }
-    
+
     useEffect(() => {
         getPMs()
     },[])
     
     if (messages.length > 0) {
         return (
+            <>
             <div className="messagesContainer">
                 {messages.map(message => {
-                    if (message.sentBySelf) {
-                        return <SentMsgCard key={message.id} message={message} />
-                    } else if (message.receiverId === parseInt(currentUserId)) { //LOOK AT THIS LINE WHEN YOU GET BACK
-                        return <ReceivedMsgCard key={message.id} message={message} />
-                    }
+                    return <MsgCard key={message.id} message={message} />
                 })}
             </div>
+            <MsgInput renderList={getPMs} />
+            </>
         )
     } else {
         return (
+            <>
             <div className="messagesContainer">
 
             </div>
+            <MsgInput renderList={getPMs} />
+            </>
         )
     }
 }

@@ -1,12 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { MsgList } from './MsgList'
-import { MsgInput } from './MsgInput'
+import './PMs.css'
 
 export const MsgBox = () => {
     return (
         <div className="PMcontainer">
             <MsgList />
-            <MsgInput />
         </div>
     )
 }
