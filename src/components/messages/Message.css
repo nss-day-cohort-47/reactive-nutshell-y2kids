@@ -19,13 +19,14 @@ button.privateMessage-bttn{
     background-color: #4a6163;
     color: #fff;
     border-radius: .25rem;
+    font-family: 'Libre Baskerville', serif;
 }
 
 .btn__user__name {
     background-color: #f17a7e;
     border-radius: 12px;
     font-size: 20px;
-    font: bold;
+    font-family: 'Libre Baskerville', serif;
 }
 .message__save--btn {
     display: flex;
@@ -36,11 +37,14 @@ button.privateMessage-bttn{
 button.saveMessage-bttn{
     background-color:#f17a7e;
     border-radius: .25rem;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
 }
 
 div.card-content{
     background-color: cornsilk;
     border: 2px solid #4a6163 ;
+    font-family: 'Libre Baskerville', serif;
 }
 
 h3.currentUser-name{
@@ -50,12 +54,30 @@ h3.currentUser-name{
 div.currentUser-card-content{
     background-color: #E2EDDD;
     border: 2px solid #4a6163 ;
+    font-family: 'Libre Baskerville', serif;
 }
 button.message-delete-bttn{
-    background-color:#f17a7e;
+    background-color:#4a6163;
     border-radius: .25rem;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
 }
 button.message-edit-bttn{
     background-color:#f17a7e;
     border-radius: .25rem;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+}
+
+h2.editMessage{
+    font-family: 'Libre Baskerville', serif;
+    color: #4a6163;
+
+}
+
+button.editMessageSubmit{
+    background-color:#f17a7e;
+    border-radius: .25rem;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
 }

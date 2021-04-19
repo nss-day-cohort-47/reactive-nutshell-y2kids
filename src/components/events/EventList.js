@@ -58,7 +58,7 @@ export const EventList = () => {
     if (mainEvent) {
         return (
             <>
-                <button type="button" onClick={() => { history.push("/events/create") }}>
+                <button className="newEvent-bttn" type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
              </button>
 
@@ -73,8 +73,8 @@ export const EventList = () => {
                             {/* <button type="button" onClick={() => handleShowWeather(mainEvent.date, mainEvent.location)}>Show Weather</button> */}
 
                             <div className="card-buttons">
-                                <button type="button" onClick={() => history.push(`/events/${mainEvent.id}/edit`)}>Edit</button>
-                                <button type="button" onClick={() => handleDeleteEvent(mainEvent.id)}>Delete</button>
+                                <button className="eventEdit-bttn" type="button" onClick={() => history.push(`/events/${mainEvent.id}/edit`)}>Edit</button>
+                                <button className="eventDelete-bttn" type="button" onClick={() => handleDeleteEvent(mainEvent.id)}>Delete</button>
                             </div>
                         </div>
                         {events.map(event =>
@@ -90,7 +90,7 @@ export const EventList = () => {
         );
     } else {
         return (
-                <button type="button" onClick={() => { history.push("/events/create") }}>
+                <button className="newEvent-bttn" type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
              </button>
 

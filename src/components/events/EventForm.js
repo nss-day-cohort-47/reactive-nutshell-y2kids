@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addEvent } from '../modules/EventManager';
-
+import "./EventForm.css"
 export const EventForm = () => {
 
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
@@ -74,7 +74,7 @@ return (
             </div>
         </fieldset>
 
-        <button disabled={isLoading} className="btn btn-primary"
+        <button disabled={isLoading} className="saveEvent-bttn"
 				onClick={handleClickSaveEvent}>
 				Save Event
           </button>

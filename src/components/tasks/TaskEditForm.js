@@ -60,8 +60,8 @@ export const TaskEditForm = () => {
                     <input type="date" id="estCompletionDate" onChange={handleFieldChange} required className="form-control" value={task.estCompletionDate} />
                 </div>
             </fieldset>
-            <button onClick={handleCancelEdit}>Cancel</button>
-            <button disabled={isLoading} onClick={updateExistingTask}>Save Task</button>
+            <button className="taskDelete-bttn" onClick={handleCancelEdit}>Cancel</button>
+            <button className="taskEdit-bttn" disabled={isLoading} onClick={updateExistingTask}>Save Task</button>
         </form>
     )
 }
