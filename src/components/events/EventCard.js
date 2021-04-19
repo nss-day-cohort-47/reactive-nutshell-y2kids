@@ -8,12 +8,12 @@ import { useHistory } from "react-router-dom";
 
 export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
 
-    const currentLoggedInUser = parseInt(sessionStorage.getItem("nutshell_user"))
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
         //look at current logged in users friends and only display events of friends.
        
     const history = useHistory()
-    if (currentLoggedInUser === event.userId ) {
+    if (currentUser === event.userId) {
     return (
 
         <div className="card">

@@ -30,13 +30,7 @@ export const EventList = () => {
         });
     };
     
-    // const getFriends = () => {
-    //     return getAllFriends()
-    //     .then(friendsFromAPI => {
-    //         console.log(setFriends(friendsFromAPI))      
-    //         setFriends(friendsFromAPI)
-    //     });
-    // };
+    
     const handleDeleteEvent = (id) => {
         deleteEvent(id)
         .then(() => getEvents());
