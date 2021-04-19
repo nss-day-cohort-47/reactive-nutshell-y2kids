@@ -35,6 +35,7 @@ export const EventEditForm = () => {
         setIsLoading(true);
 
         const editedEvent = {
+            userId: parseInt(sessionStorage.getItem("nutshell_user")),
             id: eventId,
             name: event.name,
             date: event.date,
