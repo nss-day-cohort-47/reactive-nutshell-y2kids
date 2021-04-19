@@ -10,6 +10,7 @@ export const TaskEditForm = () => {
     const [isLoading, setIsLoading] = useState(false)
     const {taskId} = useParams()
     const history = useHistory()
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const handleFieldChange = event => {
         const stateToChange = {...task}
@@ -26,7 +27,7 @@ export const TaskEditForm = () => {
             name: task.name,
             estCompletionDate: task.estCompletionDate,
             isComplete: false,
-            //Add userId property here once it is added correctly in TaskForm.js
+            userId: currentUserId
         }
 
         updateTask(editedTask)
