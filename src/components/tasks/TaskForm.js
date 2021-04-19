@@ -21,7 +21,7 @@ export const TaskForm = () => {
 
         //Add current user's userId as a property before calling addTask
 
-        let task2Add = task;
+        let task2Add = {...task};
         task2Add.isComplete = false;
         
         addTask(task2Add).then(() => history.push("/tasks"))
