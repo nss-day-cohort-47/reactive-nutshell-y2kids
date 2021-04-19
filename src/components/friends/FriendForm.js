@@ -46,15 +46,21 @@ export const FriendForm = () => {
             getAllFriends()
                 .then(friends => {
                     const currentFriend = friends.find(friend => friend.userId === newFriendship.userId);
+                    console.log(friends)
                     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+                    console.log(currentUser)
                     if (currentFriend )
                     {
                         window.alert("Friend already exists, please select a new friend.")
                         return history.push(`/friends`)
-                    } if (currentUser){
+                    } 
+                    //bug in add friend related to the second if statement
+                    if (currentUser)
+                    {
                         window.alert("you may not add yourself")
                         return history.push(`/friends`)
-                    } else {
+                    } 
+                    else {
                         addFriend(newFriendship)
                         .then(() => history.push('/friends'))
                     }    

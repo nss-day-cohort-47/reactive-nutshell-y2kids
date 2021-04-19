@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FriendCard } from './FriendCard';
-import { getAllFriends, getFriendById, deleteFriend, addFriend } from '../modules/FriendManager';
+import { getAllFriends,  deleteFriend} from '../modules/FriendManager';
 import { useHistory } from 'react-router-dom';
 
 export const FriendList = () => {

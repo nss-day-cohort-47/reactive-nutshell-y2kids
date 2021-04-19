@@ -38,3 +38,4 @@ export const getEventById = (id) => {
     return fetch(`${remoteURL}/events/${id}`)
     .then(res => res.json())
 }
+

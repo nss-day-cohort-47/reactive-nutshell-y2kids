@@ -1,4 +1,4 @@
-//Author: Joel
+//Author: Joel, B.J. 
 // Purpose: This component takes in the array of events from the database, sorts according to date (with closest upcoming event at the top), and feeds array into the event card to be formatted.
 // "mainEvent" state holds the most immediate event and is formatted into it's own html card in the return.
 
@@ -7,19 +7,21 @@ import { EventCard } from './EventCard';
 import { useHistory } from 'react-router-dom';
 import { getAllEvents, deleteEvent } from '../modules/EventManager'
 import "./EventList.css"
+import {getAllFriends} from "../modules/FriendManager"
 
 
 export const EventList = () => {
     const [events, setEvents] = useState([]);
+    const [friends, setFriends] = useState([]);
     const [mainEvent, setMain] = useState({});
     const history = useHistory();
-
-
+    
+    
     const getEvents = () => {
         return getAllEvents().then(eventsFromAPI => {
             const sortedEvents = eventsFromAPI.sort((a, b) => {
                 let da = new Date(a.date),
-                    db = new Date(b.date);
+                db = new Date(b.date);
                 return da - db;
             })
             const firstElement = sortedEvents.shift()
@@ -27,13 +29,21 @@ export const EventList = () => {
             setEvents(sortedEvents)
         });
     };
+    
+    // const getFriends = () => {
+    //     return getAllFriends()
+    //     .then(friendsFromAPI => {
+    //         console.log(setFriends(friendsFromAPI))      
+    //         setFriends(friendsFromAPI)
+    //     });
+    // };
     const handleDeleteEvent = (id) => {
         deleteEvent(id)
-            .then(() => getEvents());
+        .then(() => getEvents());
     };
-
+    
     const checkEventDate = () => {
-
+        
         if (mainEvent === true) {
             let currentDate = new Date().getTime();
             let eventDate = new Date(mainEvent.date).getTime();
@@ -44,19 +54,22 @@ export const EventList = () => {
         }
     }
     checkEventDate()
-
-    // const handleShowWeather = (date, location) => {
-    //     showWeather(date, location)
-    //     .then(() => weatherDetail())
-    // }
-
-    useEffect(() => {
-        getEvents();
-    }, []);
-
     
-    if (mainEvent) {
-        return (
+    // const handleShowWeather = (date, location) => {
+        //     showWeather(date, location)
+        //     .then(() => weatherDetail())
+        // }
+        
+        useEffect(() => {
+            getEvents();
+            // getFriends();
+            
+        }, []);
+        
+        console.log(events)
+        
+        if (mainEvent) {
+            return (
             <>
                 <button type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
