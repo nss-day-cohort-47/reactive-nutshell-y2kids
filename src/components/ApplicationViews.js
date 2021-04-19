@@ -13,6 +13,7 @@ import { EventForm } from "./events/EventForm"
 import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from './tasks/TaskForm'
 import { TaskEditForm } from './tasks/TaskEditForm'
+import { MsgBox } from './messages/privateMessages/MsgBox'
 
 export const ApplicationViews = () => {
   return (
@@ -21,25 +22,33 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         <ArticleList />
       </Route>
-      
-      <Route path="/create">
-      <ArticleAddForm />
+
+      <Route exact path="/friends">
+        <FriendList />
+      </Route>
+
+      <Route exact path="/messages">
+
+      </Route>
+
+      <Route exact path="/messages/private">
+        <MsgBox />
+      </Route>
+
+      <Route exact path="/create">
+        <ArticleAddForm />
       </Route>
 
       <Route path="/:articleId(\d+)/edit">
-      <ArticleEditForm />
-      </Route>
-      
-      <Route exact path="/friends">
-         <FriendList />
+        <ArticleEditForm />
       </Route>
 
       <Route exact path="/friends/create">
-          <FriendForm />
+        <FriendForm />
       </Route>
 
       <Route exact path="/friends/create/:userId(\d+)">
-          <FriendForm />
+        <FriendForm />
       </Route>      
 
       <Route exact path="/messages">
