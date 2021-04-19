@@ -13,10 +13,6 @@ import { EventForm } from "./events/EventForm"
 import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from './tasks/TaskForm'
 import { TaskEditForm } from './tasks/TaskEditForm'
-// import { Login } from "../components/auth/Login"
-// import { Register } from "../components/auth/Register"
-import { FriendList } from "./friends/FriendList"
-import { FriendForm } from "./friends/FriendForm"
 import { MsgBox } from './messages/privateMessages/MsgBox'
 
 export const ApplicationViews = () => {
