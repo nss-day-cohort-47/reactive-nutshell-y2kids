@@ -6,16 +6,11 @@ import React, { useState, useEffect } from 'react';
 import { EventCard } from './EventCard';
 import { useHistory } from 'react-router-dom';
 import { getAllEvents, deleteEvent } from '../modules/EventManager'
-import {getFutureWeather} from '../modules/WeatherManager'
-import { FutureWeatherCard } from '../weather/WeatherCard'
 import "./EventList.css"
 
 
 export const EventList = () => {
     const [events, setEvents] = useState([]);
-    const [mainEvent, setMain] = useState({});
-    const [weatherObj, setWeather] = useState({});
-    const [showWeather, setShowWeather] = useState(false)
     const history = useHistory();
 
 
@@ -26,8 +21,6 @@ export const EventList = () => {
                     db = new Date(b.date);
                 return da - db;
             })
-            const firstElement = sortedEvents.shift()
-            setMain(firstElement)
             setEvents(sortedEvents)
         });
     };
@@ -36,67 +29,38 @@ export const EventList = () => {
             .then(() => getEvents());
     };
 
-    const checkEventDate = () => {
+    // const checkEventDate = () => {
 
-        if (mainEvent === true) {
-            let currentDate = new Date().getTime();
-            let eventDate = new Date(mainEvent.date).getTime();
-            let timeDifference = eventDate - currentDate
-            if (timeDifference < 0) {
-                deleteEvent(mainEvent.id)
-            }
-        }
-    }
-    checkEventDate()
-
-    const handleFutureWeather = (location) => {
-        getFutureWeather(location)
-        .then(weatherFromAPI => setWeather(weatherFromAPI))
-        console.log(weatherFromAPI)
-    }
-    
-    
+    //     if (mainEvent === true) {
+    //         let currentDate = new Date().getTime();
+    //         let eventDate = new Date(mainEvent.date).getTime();
+    //         let timeDifference = eventDate - currentDate
+    //         if (timeDifference < 0) {
+    //             deleteEvent(mainEvent.id)
+    //         }
+    //     }
+    // }
+    // checkEventDate()
 
     useEffect(() => {
         getEvents();
     }, []);
     
-    if (mainEvent) {
+    if (events) {
         return (
             <>
                 <button type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
              </button>
 
-                <div className="event Component">
-                    <div className="container-cards">
-                        <div className="mainCard">
-                            <h2>Name: {mainEvent.name}</h2>
-                            <h3>Date: {mainEvent.date}</h3>
-                            <h3>Location: {mainEvent.location}</h3>
-
-                            <button type="button" onClick={() => handleFutureWeather(mainEvent.location).then(setShowWeather(true)) }>Show Weather</button>
-
-                             {showWeather? <FutureWeatherCard weatherObj = {weatherObj} /> : null}
-
-                                
-
-                            <div className="card-buttons">
-                                <button type="button" onClick={() => history.push(`/events/${mainEvent.id}/edit`)}>Edit</button>
-                                <button type="button" onClick={() => handleDeleteEvent(mainEvent.id)}>Delete</button>
-                            </div>
-                        </div>
+                   
                         {events.map(event =>
                             <EventCard
                                 key={event.id}
                                 event={event}
-                                handleShowWeather={handleFutureWeather}
                                 handleDeleteEvent={handleDeleteEvent} />)}
                                
                                
-                    </div>
-
-                </div>
             </>
         );
     } else {

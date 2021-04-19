@@ -3,8 +3,9 @@ import { weatherKey } from "../../../src/apiKeys"
 export const getFutureWeather = (location) => {
     console.log("get future weather call", )
     return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=${weatherKey}`)
-        .then(response => response.json())
-}
+        .then(response => response.json()
+        // .then(parsedresponse => console.log("future Weather", parsedresponse)))
+        )}
 
 export const getCurrentWeather = () => {
     // return weatherObject

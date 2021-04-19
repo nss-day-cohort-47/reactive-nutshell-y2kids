@@ -18,18 +18,6 @@ export const EventEditForm = () => {
         setEvent(stateToChange);
     };
 
-    //Code in case Drop Downs are needed
-    // const hangdleControlledInputChange = (evt) => {
-
-    //     const newEvent = { ...event }
-    //     let selectedVal = event.target.value
-    //     if (event.target.id.includes("Id")) {
-    //         selectedVal = parseInt(selectedVal)
-    //     }
-    //     newEvent[event.target.id] = selectedVal
-    //     setEvent(newEvent)
-    // }
-
     const updateExistingEvent = evt => {
         evt.preventDefault()
         setIsLoading(true);

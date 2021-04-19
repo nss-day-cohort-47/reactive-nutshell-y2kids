@@ -6,17 +6,17 @@ import React from "react"
 export const CurrentWeatherCard=({weatherObj})=>{
     return(
         <div className="weatherCard">
-            <h3>Forcast For {weatherObj.name}</h3>
+            <h3>Current Weather For {weatherObj.name}</h3>
             <h4>{`${Math.round(weatherObj.main.temp)} degrees and ${weatherObj.weather[0].main}`}</h4>
         </div>
     )
 }
 
-export const FutureWeatherCard=({weatherobj})=>{
+export const FutureWeatherCard=({weatherObj})=>{
     return(
-        <div className="weatherCard">
-            <h3>Forcast For {weatherobj.name} </h3>
-            <h4>{`${Math.round(weatherobj.main.temp)} degrees and ${weatherobj.weather[0].main}`}</h4>
+        <div className="forcastWeatherCard">
+            <h3>Forcast For {weatherObj.city.name} </h3>
+            <h4>{`${Math.round(weatherObj.list[0].main.temp)} degrees and ${weatherObj.list[0].weather[0].main}`}</h4>
         </div>
     )
 }
