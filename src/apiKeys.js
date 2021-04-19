@@ -1,1 +1,1 @@
-export const weatherKey ="19b1367f69999d0f520b3019e0cd55e8";
+export const weatherKey ="855876f002072eea5fbeb8d51a60f1e2";

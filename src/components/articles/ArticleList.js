@@ -29,10 +29,10 @@ export const ArticleList = () => {
     };
     
     const handleShowWeather = () => {
-    //     getCurrentWeather()
-    //     .then(weatherFromAPI => setWeather(weatherFromAPI))
-    const weather = getCurrentWeather()
-    setWeather(weather) 
+        getCurrentWeather()
+        .then(weatherFromAPI => setWeather(weatherFromAPI))
+    // const weather = getCurrentWeather()
+    // setWeather(weather) 
     }
 
         return(

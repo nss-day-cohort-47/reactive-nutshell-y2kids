@@ -6,14 +6,16 @@ import React, { useState, useEffect } from 'react';
 import { EventCard } from './EventCard';
 import { useHistory } from 'react-router-dom';
 import { getAllEvents, deleteEvent } from '../modules/EventManager'
-import {getCurrentWeather} from '../modules/WeatherManager'
+import {getFutureWeather} from '../modules/WeatherManager'
+import { FutureWeatherCard } from '../weather/WeatherCard'
 import "./EventList.css"
 
 
 export const EventList = () => {
     const [events, setEvents] = useState([]);
     const [mainEvent, setMain] = useState({});
-    const [weatherArr, setWeather] = useState([]);
+    const [weatherObj, setWeather] = useState({});
+    const [showWeather, setShowWeather] = useState(false)
     const history = useHistory();
 
 
@@ -47,9 +49,10 @@ export const EventList = () => {
     }
     checkEventDate()
 
-    const handleShowWeather = (location) => {
-        getCurrentWeather(location)
+    const handleFutureWeather = (location) => {
+        getFutureWeather(location)
         .then(weatherFromAPI => setWeather(weatherFromAPI))
+        console.log(weatherFromAPI)
     }
     
     
@@ -72,7 +75,11 @@ export const EventList = () => {
                             <h3>Date: {mainEvent.date}</h3>
                             <h3>Location: {mainEvent.location}</h3>
 
-                            <button type="button" onClick={() => handleShowWeather(mainEvent.location, mainEvent.date)}>Show Weather</button>
+                            <button type="button" onClick={() => handleFutureWeather(mainEvent.location).then(setShowWeather(true)) }>Show Weather</button>
+
+                             {showWeather? <FutureWeatherCard weatherObj = {weatherObj} /> : null}
+
+                                
 
                             <div className="card-buttons">
                                 <button type="button" onClick={() => history.push(`/events/${mainEvent.id}/edit`)}>Edit</button>
@@ -83,7 +90,7 @@ export const EventList = () => {
                             <EventCard
                                 key={event.id}
                                 event={event}
-                                handleShowWeather={handleShowWeather}
+                                handleShowWeather={handleFutureWeather}
                                 handleDeleteEvent={handleDeleteEvent} />)}
                                
                                

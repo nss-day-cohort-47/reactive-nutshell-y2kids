@@ -7,7 +7,7 @@ import "./Event.css";
 import { useHistory } from "react-router-dom";
 import {WeatherCard } from "../weather/WeatherCard";
 
-export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
+export const EventCard = ({ event, handleFutureWeather, handleDeleteEvent }) => {
 
     const history = useHistory()
     return (
@@ -19,7 +19,7 @@ export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
                 <h5>Date: {event.date}</h5>
                 <h5>Location: {event.location}</h5>
 
-                {/* <button type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button> */}
+                {/* <button type="button" onClick={() => handleFutureWeather(event.date, event.location)}>Show Weather</button> */}
 
                 <div className="card-buttons">
                     <button type="button" onClick={() => history.push(`/events/${event.id}/edit`)}>Edit</button>
