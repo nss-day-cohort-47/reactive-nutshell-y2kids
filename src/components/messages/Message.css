@@ -5,8 +5,9 @@
 }
 
 .message__box {
-    background-color: #343A40;
-    color:#007BFF;
+    background-color: #4a6163;
+    color:#fff8dc;
+    font-family: 'Libre Baskerville', serif;
 }
 
 .message__save--btn {
@@ -20,10 +21,19 @@
     display: flex;
     justify-content: flex-end;
 }
+button.privateMessage-bttn{
+    background-color: #4a6163;
+    color: #fff;
+    border-radius: .25rem;
+}
 
 .btn__user__name {
     background-color: #007BFF;
     border-radius: 12px;
     font-size: 20px;
     font: bold;
+}
+button.saveMessage-bttn{
+    background-color:#f17a7e;
+    border-radius: .25rem;
 }

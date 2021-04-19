@@ -10,7 +10,7 @@ export const ArticleCard = ({article, handleDeleteArticle}) => {
   <section className="currentUser-card">
       <h2 className="currentUser-article_title">{article.title}</h2>
       <div className="currentUser-article_synopsis">{article.synopsis}</div>
-      <div className="currentUser-article_url"><a href={article.url}>Click Here To Read More</a></div>
+      <div className="currentUser-article_url"><a className="card-url" href={article.url}>Click Here To Read More</a></div>
       <button className="delete-bttn" type="button" onClick={() => handleDeleteArticle(article.id)}>Delete Article</button>
       <button className="edit-bttn" type="button" onClick={() => history.push(`/${article.id}/edit`)}>Edit</button>
   </section>
