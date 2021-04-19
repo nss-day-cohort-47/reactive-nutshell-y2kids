@@ -16,7 +16,6 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
 //Style first child element in css.
 
 const [weatherObj, setWeather] = useState({});
-const [isHidden, setHidden] = useState(true);
 
 const handleFutureWeather = (location) => {
     getFutureWeather(location)
