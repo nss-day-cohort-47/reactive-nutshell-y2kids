@@ -44,10 +44,14 @@ a.card-url{
     background-color: transparent;
 }
 button.delete-bttn{
+    background-color: #f17a7e;
+    color: #E2EDDD;
+    width: 200px;
     border-radius: .25rem;
-    font-family: 'Libre Baskerville', serif;
 }
 button.edit-bttn{
+    background-color: #f17a7e;
+    color: #E2EDDD;
+    width: 200px;
     border-radius: .25rem;
-    font-family: 'Libre Baskerville', serif;
 }
