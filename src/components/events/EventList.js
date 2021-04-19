@@ -35,7 +35,7 @@ export const EventList = () => {
         deleteEvent(id)
         .then(() => getEvents());
     };
-    
+     
     const checkEventDate = () => {
         
         if (mainEvent === true) {
@@ -60,7 +60,16 @@ export const EventList = () => {
             
         }, []);
         
-        console.log(events)
+        getAllFriends()
+        .then(friends => {
+            //find current user
+            const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+            //find the friends associated with the current user
+            const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
+
+            console.log(currentUsersFriends)
+
+        }) 
         
         if (mainEvent) {
             return (

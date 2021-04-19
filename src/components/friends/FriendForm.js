@@ -47,7 +47,7 @@ export const FriendForm = () => {
                 .then(friends => {
                     const currentFriend = friends.find(friend => friend.userId === newFriendship.userId);
 
-                    const currentUsersFriends = friends.filter( friend => friend.currentUserId)
+                    const currentUsersFriends = friends.filter(friend => friend.currentUserId)
 
                     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
               
