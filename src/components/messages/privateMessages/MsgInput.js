@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to render the input fields for private messages. It also
+// handles changes or clicks on those inputs.
+
 import React, { useState, useEffect } from 'react'
 import { getAllUsers } from '../../modules/UserManager'
 import { addPM } from '../../modules/PrivateMessageManager'

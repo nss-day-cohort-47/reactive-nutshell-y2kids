@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to render a list of all private messages. It also
+// uses some logic to only show the messages sent by or received by the current user.
+
 import React, { useState, useEffect } from 'react'
 import { getAllPMs } from '../../modules/PrivateMessageManager'
 import { MsgCard } from './MsgCard'

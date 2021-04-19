@@ -1,3 +1,6 @@
+//Author: Bryson Goins. The purpose of this module is to render a card for every message sent by or received
+// by the current user.
+
 import React, { useState, useEffect } from 'react'
 import './PMs.css'
 import { getAllUsers } from '../../modules/UserManager'
