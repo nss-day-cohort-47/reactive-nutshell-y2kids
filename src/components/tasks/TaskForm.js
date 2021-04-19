@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { addTask } from '../modules/TaskManager'
 
 export const TaskForm = () => {
-    const [task, setTask] = useState({name: ""});
+    const [task, setTask] = useState({name: "", estCompletionDate: ""});
     const history = useHistory();
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 

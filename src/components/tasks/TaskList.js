@@ -10,7 +10,6 @@ import './TaskList.css'
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
-    const [checkbox, setCheckbox] = useState(false);
     const history = useHistory();
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
@@ -36,16 +35,9 @@ export const TaskList = () => {
         })
         .then(updatedTask => {
             updateTask(updatedTask)
-            return true
-        })
-        .then(() => {
-            getTasks().then(() => {
-                if (checkbox) {
-                    setCheckbox(false)
-                } else {
-                    setCheckbox(true)
-                }
-            })
+            .then(() => {
+                getTasks()
+            })         
         })
     }
 
