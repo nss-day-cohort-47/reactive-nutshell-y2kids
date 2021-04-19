@@ -45,6 +45,7 @@ export const EventList = () => {
     useEffect(() => {
         getEvents();
     }, []);
+
     
     if (events) {
         return (

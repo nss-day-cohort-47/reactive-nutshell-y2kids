@@ -1,3 +1,6 @@
+//Author: B.J. Golden
+//this module is responsible for fetching all data from the DB.
+
 const remoteURL = 'http://localhost:8088'
 
 export const getFriendById = (id) => {
