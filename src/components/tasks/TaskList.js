@@ -12,6 +12,7 @@ export const TaskList = () => {
     const [tasks, setTasks] = useState([]);
     const [checkbox, setCheckbox] = useState(false);
     const history = useHistory();
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const getTasks = () => {
         return getAllTasks().then(allTasks => {
@@ -38,7 +39,13 @@ export const TaskList = () => {
             return true
         })
         .then(() => {
-            getTasks().then(setCheckbox(true))
+            getTasks().then(() => {
+                if (checkbox) {
+                    setCheckbox(false)
+                } else {
+                    setCheckbox(true)
+                }
+            })
         })
     }
 
@@ -55,7 +62,7 @@ export const TaskList = () => {
             </div>
             <div className="listAllTasks">
                 {tasks.map(task => {
-                    if (task.isComplete === false) {
+                    if (task.isComplete === false && task.userId === currentUserId) {
                         return <TaskCard key={task.id} task={task} handleCheckboxClick={handleCheckboxClick} handleDeleteTask={handleDeleteTask} />
                     }
                 })}
