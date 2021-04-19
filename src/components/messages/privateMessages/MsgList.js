@@ -16,20 +16,8 @@ export const MsgList = () => {
     const getPMs = () => {
         
         getAllPMs().then(allPMs => {
-            const sentByCurrent = allPMs.filter(message => message.userId === parseInt(currentUserId))
-            const sentByOthers = allPMs.filter(message => message.userId !== parseInt(currentUserId))
-
-            const newCurrent = sentByCurrent.map(message => { 
-                message.sentBySelf = true
-                return message
-            })
-            const newOthers = sentByOthers.map(message => {
-                message.sentBySelf = false
-                return message
-            })
-
-            const allMessages = newCurrent.concat(newOthers)
-            return allMessages
+            const senderMarked = allPMs.map(curr => ({...curr, sentBySelf: curr.userId === parseInt(currentUserId)}));
+            return senderMarked
         })
         .then(allMsgsArray => {
             setMessages(allMsgsArray)
@@ -42,7 +30,7 @@ export const MsgList = () => {
     useEffect(() => {
         getPMs()
     },[])
-    
+
     if (messages.length > 0) {
         return (
             <>
@@ -58,7 +46,7 @@ export const MsgList = () => {
         return (
             <>
             <div className="messagesContainer">
-
+            
             </div>
             <MsgInput renderList={getPMs} />
             </>

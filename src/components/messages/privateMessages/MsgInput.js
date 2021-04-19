@@ -4,7 +4,7 @@ import { addPM } from '../../modules/PrivateMessageManager'
 import './PMs.css'
 
 
-export const MsgInput = ({renderList}) => {
+export const MsgInput = ({ renderList }) => {
     const [users, setUsers] = useState([])
     const [messageObj, setMessageObj] = useState({
         userId: 0,
@@ -43,11 +43,17 @@ export const MsgInput = ({renderList}) => {
         if (messageObj.userId === 0 || messageObj.receiverId === 0) {
             alert("Please choose a user to send a message to.")
         } else {
-            let datedMessage = {...messageObj}
+            let datedMessage = { ...messageObj }
             datedMessage.timestamp = Date.now()
 
             addPM(datedMessage).then(() => {
                 renderList()
+            }).then(() => {
+                setMessageObj({
+                    userId: 0,
+                    receiverId: 0,
+                    message: ""
+                })
             })
         }
     }
@@ -60,9 +66,9 @@ export const MsgInput = ({renderList}) => {
 
     return (
         <div className="inputContainer">
-            <textarea id="PMinputField" name="PMinputField" rows="5" cols="50" placeholder="Type Your Message" onChange={handleMessageChange} />
+            <textarea id="PMinputField" value={messageObj.message} name="PMinputField" rows="5" cols="50" placeholder="Type Your Message" onChange={handleMessageChange} />
             <select name="userDropdown" id="userDropdown" onChange={handleReceiverChange} >
-                <option value="default" selected disabled >Select a User</option>
+                <option value="0" selected disabled >Select a User</option>
                 {users.map(user => {
                     if (user.id !== parseInt(currentUserId)) {
                         return <option key={user.id} value={user.id}>{user.name}</option>
