@@ -49,11 +49,9 @@ export const MsgInput = ({ renderList }) => {
             addPM(datedMessage).then(() => {
                 renderList()
             }).then(() => {
-                setMessageObj({
-                    userId: 0,
-                    receiverId: 0,
-                    message: ""
-                })
+                const resetMsg = {...messageObj}
+                resetMsg.message = ""
+                setMessageObj(resetMsg)
             })
         }
     }
