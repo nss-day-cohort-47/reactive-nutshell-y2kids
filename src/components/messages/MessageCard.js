@@ -40,12 +40,12 @@ export const MessageCard = ({message, handleDeleteMessage}) => {
     if (currentLoggedInUser === message.userId) {
     return (
         <div className='card'>
-            <div className="card-content">
-                <h3>{message.user.name}: </h3>
+            <div className="currentUser-card-content">
+                <h3 className="currentUser-name">{message.user.name}: </h3>
                 <h4><span className="card-message">
                 </span>{message.message}</h4>
-                <button type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
-                <button type="button" onClick={() => history.push(`/messages/${message.id}/edit`)}>Edit</button>
+                <button className="message-delete-bttn" type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
+                <button className="message-edit-bttn" type="button" onClick={() => history.push(`/messages/${message.id}/edit`)}>Edit</button>
             </div>
         </div>
     )}else {

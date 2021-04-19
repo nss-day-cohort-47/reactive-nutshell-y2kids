@@ -46,8 +46,8 @@ export const TaskForm = () => {
                     <input type="date" id="estCompletionDate" onChange={handleInputChange} required autoFocus className="form-control" value={task.estCompletionDate} />
                 </div>
             </fieldset>
-            <button onClick={handleCancelNew}>Cancel</button>
-            <button onClick={handleSaveTask}>Save Task</button>
+            <button className="cancel-bttn" onClick={handleCancelNew}>Cancel</button>
+            <button className="saveTask-bttn" onClick={handleSaveTask}>Save Task</button>
         </form>
     )
 }

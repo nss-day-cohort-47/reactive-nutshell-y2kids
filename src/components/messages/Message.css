@@ -10,12 +10,6 @@
     font-family: 'Libre Baskerville', serif;
 }
 
-.message__save--btn {
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 2em;
-    padding-right: 2em;
-}
 
 .privateMessage {
     display: flex;
@@ -28,12 +22,40 @@ button.privateMessage-bttn{
 }
 
 .btn__user__name {
-    background-color: #007BFF;
+    background-color: #f17a7e;
     border-radius: 12px;
     font-size: 20px;
     font: bold;
 }
+.message__save--btn {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2em;
+    padding-right: 2em;
+}
 button.saveMessage-bttn{
+    background-color:#f17a7e;
+    border-radius: .25rem;
+}
+
+div.card-content{
+    background-color: cornsilk;
+    border: 2px solid #4a6163 ;
+}
+
+h3.currentUser-name{
+    color: #4a6163;
+}
+
+div.currentUser-card-content{
+    background-color: #E2EDDD;
+    border: 2px solid #4a6163 ;
+}
+button.message-delete-bttn{
+    background-color:#f17a7e;
+    border-radius: .25rem;
+}
+button.message-edit-bttn{
     background-color:#f17a7e;
     border-radius: .25rem;
 }

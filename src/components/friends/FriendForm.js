@@ -73,7 +73,7 @@ export const FriendForm = () => {
 
                 </div>
             </fieldset>
-            <button type="button" className="btn btn-primary" onClick={handleClickSaveFriend}>Save Friend</button>
+            <button type="button" className="saveFriend-btn" onClick={handleClickSaveFriend}>Save Friend</button>
         </form>
     )
 }
