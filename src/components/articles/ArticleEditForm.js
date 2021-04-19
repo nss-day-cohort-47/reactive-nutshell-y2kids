@@ -10,6 +10,7 @@ const [isLoading, setIsLoading]= useState(false);
 const {articleId} = useParams();
 const history = useHistory();
 
+
 const handleFieldChange = (event) =>{
     const stateToChange={...article};
     stateToChange[event.target.id]= event.target.value;
@@ -21,10 +22,12 @@ const updateExistingArticle = (event) => {
     setIsLoading(true);
     
     const editedArticle = {
+        userId:article.userId,
         id:articleId,
         title:article.title,
         synopsis:article.synopsis,
-        url:article.url
+        url:article.url,
+        timestamp:article.timestamp
     };
     
     updateArticle(editedArticle)
