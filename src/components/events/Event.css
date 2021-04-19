@@ -1,0 +1,19 @@
+div.eventCard-content{
+    background-color: cornsilk;
+    margin: 10px;
+    border-radius: .25rem;
+    font-family: 'Libre Baskerville', serif;
+}
+
+button.showWeather-bttn{
+    background-color: #f17a7e;
+    color: #fff;
+    border-radius: .25rem;
+}
+
+div.currentUser-eventCard-content{
+    background-color: #E2EDDD;
+    border: 2px solid #4a6163;
+    font-family: 'Libre Baskerville', serif;
+    border-radius: .25rem;
+}

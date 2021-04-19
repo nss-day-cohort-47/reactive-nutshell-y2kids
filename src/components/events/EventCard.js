@@ -16,32 +16,32 @@ export const EventCard = ({ event, handleShowWeather, handleDeleteEvent }) => {
 
         <div className="card">
            
-            <div className="currentUser-card-content">
+            <div className="currentUser-eventCard-content">
                 <h4>User: {event.user.name}</h4>
                 <h4>Name: {event.name}</h4>
                 <h5>Date: {event.date}</h5>
                 <h5>Location: {event.location}</h5>
 
-                <button type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button>
+                <button className="showWeather-bttn" type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button>
 
                 <div className="currentUser-card-buttons">
-                    <button type="button" onClick={() => history.push(`/events/${event.id}/edit`)}>Edit</button>
-                    <button type="button" onClick={() => handleDeleteEvent(event.id)}>Delete</button>
+                    <button className="eventEdit-bttn" type="button" onClick={() => history.push(`/events/${event.id}/edit`)}>Edit</button>
+                    <button className="eventDelete-bttn" type="button" onClick={() => handleDeleteEvent(event.id)}>Delete</button>
                 </div>
             </div>
         </div>
     
     )} else {
         return(
-        <div className="card">
+        <div className="eventCard">
            
-        <div className="card-content">
+        <div className="eventCard-content">
             <h4>User: {event.user.name}</h4>
             <h4>Name: {event.name}</h4>
             <h5>Date: {event.date}</h5>
             <h5>Location: {event.location}</h5>
 
-            <button type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button>
+            <button className="showWeather-bttn" type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button>
 
         </div>
     </div>
