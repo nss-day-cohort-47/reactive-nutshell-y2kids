@@ -1,4 +1,15 @@
 .article-list {
     display: flex; 
     flex-direction: column-reverse;
+    
+}
+button.new-article-bttn{
+    background-color: #4a6163;
+    color: #fff;
+    border-radius: .25rem;
+}
+button.btn {
+    background-color: #4a6163;
+    color: #E2EDDD;
+    border-radius: .25rem;
 }

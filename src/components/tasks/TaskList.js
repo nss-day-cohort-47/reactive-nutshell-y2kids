@@ -50,7 +50,7 @@ export const TaskList = () => {
     return (
         <div className="taskTracker">
             <div className="taskTopBar">
-                <button type="button" onClick={() => history.push("/tasks/create")}>Add Task</button>
+                <button className="addTask-bttn" type="button" onClick={() => history.push("/tasks/create")}>Add Task</button>
             </div>
             <div className="listAllTasks">
                 {tasks.map(task => {

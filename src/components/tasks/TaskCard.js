@@ -14,8 +14,8 @@ export const TaskCard = ({ task, handleDeleteTask, handleCheckboxClick }) => {
             <h4>{task.name}</h4>
             <h5>Estimated Completion Date:<br />{task.estCompletionDate}</h5>
             <div className="btnBox">
-                <button type="button" onClick={() => history.push(`/tasks/${task.id}/edit`)}>Edit</button>
-                <button type="button" onClick={() => handleDeleteTask(task.id)}>Delete</button>
+                <button className="taskEdit-bttn" type="button" onClick={() => history.push(`/tasks/${task.id}/edit`)}>Edit</button>
+                <button className="taskDelete-bttn" type="button" onClick={() => handleDeleteTask(task.id)}>Delete</button>
             </div>
         </div>
     )

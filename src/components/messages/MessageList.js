@@ -67,7 +67,7 @@ export const MessageList = () => {
     return (
         <>
         <div className="privateMessage">
-            <button type='button' onClick={() => history.push(`/messages/private`)}>Create Private Message:</button>
+            <button className="privateMessage-bttn" type='button' onClick={() => history.push(`/messages/private`)}>Create Private Message:</button>
         </div>
         <div className="container-cards">
             {messages.map(message => <MessageCard key={message.id} message={message} handleDeleteMessage={handleDeleteMessage}/>)}
@@ -78,7 +78,7 @@ export const MessageList = () => {
             <input type="text" id="message" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder='type your message here' value={message.message} />
         </div>
         <section className="message__save--btn">
-            <button type="button"  onClick={handleClickSaveMessage}>Save Message</button>
+            <button className="saveMessage-bttn" type="button"  onClick={handleClickSaveMessage}>Save Message</button>
         </section>
         </fieldset>
         </>

@@ -51,18 +51,18 @@ export const TaskEditForm = () => {
             <h2 className="taskForm__title">Edit Task</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Task:</label>
+                    <label className="taskFormLabel" htmlFor="name">Task:</label>
                     <input type="text" id="name" onChange={handleFieldChange} required className="form-control" value={task.name} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="estCompletionDate">Estimated Completion Date:</label>
+                    <label className="taskFormLabel" htmlFor="estCompletionDate">Estimated Completion Date:</label>
                     <input type="date" id="estCompletionDate" onChange={handleFieldChange} required className="form-control" value={task.estCompletionDate} />
                 </div>
             </fieldset>
-            <button onClick={handleCancelEdit}>Cancel</button>
-            <button disabled={isLoading} onClick={updateExistingTask}>Save Task</button>
+            <button className="taskDelete-bttn" onClick={handleCancelEdit}>Cancel</button>
+            <button className="taskEdit-bttn" disabled={isLoading} onClick={updateExistingTask}>Save Task</button>
         </form>
     )
 }

@@ -57,7 +57,7 @@ export const MessageEditForm = () => {
     
       return (
         <>
-        <h2>Edit Message: </h2>
+        <h2 className="editMessage">Edit Message: </h2>
           <form className="messageForm">
             <fieldset>
               <div className="form-group">
@@ -72,10 +72,10 @@ export const MessageEditForm = () => {
                 />
               </div>
               <div className="alignRight">
-                <button
+                <button 
                   type="button" disabled={isLoading}
                   onClick={updateExistingMessage}
-                  className="btn btn-primary"
+                  className="editMessageSubmit"
                 > Submit</button>
               </div>
             </fieldset>
