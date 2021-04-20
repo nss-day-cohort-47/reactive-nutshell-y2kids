@@ -23,10 +23,16 @@ export const EventList = () => {
             //find the friends associated with the current user
             const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
             const currentFriend = friends.filter(friend => friend.userId)
-            const testVar = currentUsersFriends.currentUserId
-            console.log(currentFriend   )
-            console.log(currentUsersFriends)
-            if(currentUsersFriends )
+            const testVar = currentFriend.map(friend => {
+                if (friend.currentUserId === currentUser)
+                return friend.currentUserId})
+            const friendFilter = testVar.filter(friend => friend)
+            const currentUsersFriendsFilter = currentUsersFriends.map(friend => {
+                if (friend.currentUserId === currentUser)
+                return friend.currentUserId})
+            console.log(friendFilter)
+            console.log(currentUsersFriendsFilter)
+            if(friendFilter === currentUsersFriendsFilter)
             {
             return getAllEvents().then(eventsFromAPI => {
                 const sortedEvents = eventsFromAPI.sort((a, b) => {
