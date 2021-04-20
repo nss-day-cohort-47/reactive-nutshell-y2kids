@@ -29,6 +29,7 @@ const handleFutureWeather = (location) => {
     const currentLoggedInUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const history = useHistory()
+    
     if (currentLoggedInUser === event.userId ) {
     return (
         <div className="card">
@@ -60,8 +61,8 @@ const handleFutureWeather = (location) => {
             <h5>Date: {event.date}</h5>
             <h5>Location: {event.location}</h5>
 
-            <button type="button" onClick={() => handleShowWeather(event.date, event.location)}>Show Weather</button>
-
+            <button type="button" onClick={() => handleFutureWeather(event.location)}>Show Weather</button>
+               {weatherObj.city? <FutureWeatherCard weatherObj = {weatherObj} /> : null}
         </div>
     </div>
     )}
