@@ -16,7 +16,7 @@ export const CurrentWeatherCard=({weatherObj})=>{
 export const FutureWeatherCard=({weatherObj})=>{
     return(
         <div className="forcastWeatherCard">
-            <h3 className="weatherCard-header" >Forcast For {weatherObj.city.name} </h3>
+            <h3 className="weatherCard-header" >Forecast For {weatherObj.city.name} </h3>
             <h4>{`${Math.round(weatherObj.list[0].main.temp)} degrees and ${weatherObj.list[0].weather[0].main}`}</h4>
         </div>
     )
