@@ -16,14 +16,28 @@ export const EventList = () => {
     
     
     const getEvents = () => {
-        return getAllEvents().then(eventsFromAPI => {
-            const sortedEvents = eventsFromAPI.sort((a, b) => {
-                let da = new Date(a.date),
-                db = new Date(b.date);
-                return da - db;
-            })
-            setEvents(sortedEvents)
-        });
+        getAllFriends()
+        .then(friends => {
+            //find current user
+            const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+            //find the friends associated with the current user
+            const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
+            const currentFriend = friends.filter(friend => friend.userId)
+            const testVar = currentUsersFriends.currentUserId
+            console.log(currentFriend   )
+            console.log(currentUsersFriends)
+            if(currentUsersFriends )
+            {
+            return getAllEvents().then(eventsFromAPI => {
+                const sortedEvents = eventsFromAPI.sort((a, b) => {
+                    let da = new Date(a.date),
+                    db = new Date(b.date);
+                    return da - db;
+                })
+                setEvents(sortedEvents)       
+                });
+            }
+        })
     };
     
     
@@ -38,11 +52,11 @@ export const EventList = () => {
         //     .then(() => weatherDetail())
         // }
         
-        // useEffect(() => {
-        //     getEvents();
-            // getFriends();
+        useEffect(() => {
+            getEvents();
+    
             
-        // }, []);
+        }, []);
         
         
         // const checkEventDate = () => {
@@ -58,14 +72,8 @@ export const EventList = () => {
                     // }
                     // checkEventDate()
                     
-        getAllFriends()
-        .then(friends => {
-            //find current user
-            const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
-            //find the friends associated with the current user
-            const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
-            console.log(currentUsersFriends)
 
+        
     
     if (events) {
         return (
@@ -84,12 +92,15 @@ export const EventList = () => {
                                
             </>
         );
-    } else {
-        return (
-                <button type="button" onClick={() => { history.push("/events/create") }}>
+        } else {
+            return (
+            
+            <button type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
-             </button>
+            </button>
 
-        )
-    }
+        
+            )
+        }
+
 };

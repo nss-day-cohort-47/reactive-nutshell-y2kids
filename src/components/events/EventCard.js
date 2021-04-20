@@ -26,7 +26,7 @@ const handleFutureWeather = (location) => {
         handleFutureWeather();
     }, []);
 
-    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+    const currentLoggedInUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
         //look at current logged in users friends and only display events of friends.
        
