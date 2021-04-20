@@ -8,9 +8,12 @@ import { useParams, useHistory } from "react-router-dom";
 export const EventEditForm = () => {
     const [event, setEvent] = useState({});
     const [isLoading, setIsLoading] = useState(false);
-
+    const currentUser= parseInt(sessionStorage.getItem("nutshell_user"))
+    
     const { eventId } = useParams();
     const history = useHistory();
+
+
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...event };
@@ -23,6 +26,7 @@ export const EventEditForm = () => {
         setIsLoading(true);
 
         const editedEvent = {
+            userId: currentUser,
             id: eventId,
             name: event.name,
             date: event.date,
