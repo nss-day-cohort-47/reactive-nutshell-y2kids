@@ -29,11 +29,11 @@ export const EventList = () => {
             //     const currentUsersFriendsFilter = currentUsersFriends.map(friend => {
                 //         if (friend.currentUserId === currentUser)
                 //         return friend.currentUserId})
-                //     console.log(testVar)
-                //     console.log(currentUsersFriends)
+
                 //     if(friendFilter === currentUsersFriendsFilter)
                 //     {
                     // })
+
             const getEvents = () => {
             return getAllEvents().then(eventsFromAPI => {
                 const sortedEvents = eventsFromAPI.sort((a, b) => {
@@ -52,10 +52,7 @@ export const EventList = () => {
     };
      
     
-    // const handleShowWeather = (date, location) => {
-        //     showWeather(date, location)
-        //     .then(() => weatherDetail())
-        // }
+
         
         useEffect(() => {
             getEvents();
