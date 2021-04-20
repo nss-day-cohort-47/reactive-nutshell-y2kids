@@ -1,3 +1,6 @@
+/* Author: Micaela Colpi
+Purpose: styling for ArticleList.js */
+
 .article-list {
     display: flex; 
     flex-direction: column-reverse;

@@ -1,3 +1,5 @@
+/* Author: Micaela
+Purpose: A usre can edit an article object that would be stored in the data base and displayed in the dom*/
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router";
 import {updateArticle,getArticlesById} from "../modules/ArticleManager"

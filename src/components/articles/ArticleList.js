@@ -1,3 +1,7 @@
+//Author: Micaela,Joel
+// Purpose: This component takes in the array of articles from the database, and feeds array into the article card to be formatted, to display on the dom
+
+
 import React, {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom"
 import { ArticleCard } from "./ArticleCard";
