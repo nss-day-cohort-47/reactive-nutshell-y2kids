@@ -67,7 +67,7 @@ export const FriendForm = () => {
             <h2 className="friendForm__title">New Friend</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Friend name: </label>
+                    <label className="friendLabel" htmlFor="name">Friend name: </label>
                     <input type="text" id='name' onChange={handleControlledInputChange} required autoFocus className="form-contorl" placeholder="Friend name"
                     value={friend.name} />
 

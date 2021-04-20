@@ -36,13 +36,13 @@ export const TaskForm = () => {
             <h2 className="taskForm__title">New Task</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Task:</label>
+                    <label className="taskFormLabel" htmlFor="name">Task:</label>
                     <input type="text" id="name" onChange={handleInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="estCompletionDate">Estimated Completion Date:</label>
+                    <label className="taskFormLabel" htmlFor="estCompletionDate">Estimated Completion Date:</label>
                     <input type="date" id="estCompletionDate" onChange={handleInputChange} required autoFocus className="form-control" value={task.estCompletionDate} />
                 </div>
             </fieldset>

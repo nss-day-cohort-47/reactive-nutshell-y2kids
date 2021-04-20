@@ -8,3 +8,7 @@ button.saveFriend-btn{
     width: 200px;
     border-radius: .25rem;
 }
+label.friendLabel{
+    color:#4a6163;
+
+}

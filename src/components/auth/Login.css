@@ -10,7 +10,7 @@ h1.logIn {
   color:#4a6163;
   font-family: 'Libre Baskerville', serif;
 }
-label {
+label.emailLabel {
   color:#4a6163;
   font-family: 'Libre Baskerville', serif;
 }

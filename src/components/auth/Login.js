@@ -49,7 +49,7 @@ export const Login = () => {
                     <h1 className="logIn">Nutshell</h1>
                     <h2 className="logIn">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label className="emailLabel" htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             id="email"
                             className="form-control"

@@ -48,24 +48,24 @@ return (
             <h2 className="articleEditForm__title">Edit Article</h2>
         <fieldset>
             <div>
-                <label>News Title:</label>
+                <label className="taskFormLabel">News Title:</label>
                 <input type="text" id="title" onChange={handleFieldChange} required autoFocus className="from-control" value={article.title} />
             </div>
         </fieldset>
         <fieldset>
             <div>
-                <label>Synopsis:</label>
+                <label className="taskFormLabel">Synopsis:</label>
                 <input type="text" id="synopsis" onChange={handleFieldChange} required autoFocus className="form-control" value={article.synopsis}/>
             
             </div>
         </fieldset>
         <fieldset>
             <div>
-                <label>URL:</label>
+                <label className="taskFormLabel">URL:</label>
                 <input type="text" id="url" onChange={handleFieldChange} required autoFocus className="form-control" value={article.url}/>
             </div>
         </fieldset>
-            <button className="btn btn-primary" disabled={isLoading} onClick={updateExistingArticle}>Update Article</button>
+            <button className="updateArticle-bttn" disabled={isLoading} onClick={updateExistingArticle}>Update Article</button>
     </form>
     )
 }

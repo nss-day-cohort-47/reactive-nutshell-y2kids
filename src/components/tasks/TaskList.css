@@ -80,3 +80,8 @@ button.cancel-bttn{
     color: #fff;
     border-radius: .25rem;
   }
+
+  label.taskFormLabel{
+    color:#4a6163;
+
+  }
