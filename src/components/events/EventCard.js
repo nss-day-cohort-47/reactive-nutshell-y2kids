@@ -1,4 +1,4 @@
-//Author: Joel
+//Author: Joel, B.J. 
 // Purpose: Event card function accepts deconstructed obj (event) and functionality from event list and creates an HTML (jsx) representation.
 // Functions are specifically for the buttons.
 
@@ -28,6 +28,8 @@ const handleFutureWeather = (location) => {
 
     const currentLoggedInUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
+        //look at current logged in users friends and only display events of friends.
+       
     const history = useHistory()
     
     if (currentLoggedInUser === event.userId ) {

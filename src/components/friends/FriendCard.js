@@ -8,6 +8,9 @@ import "./Friend.css"
 
 export const FriendCard = ({ friend, handleDeleteFriend }) => {
     const history = useHistory();
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+
+    if (currentUser === friend.currentUserId) {
     return (
         <div className="card friend-card">
             <div className="card-content">
@@ -20,5 +23,9 @@ export const FriendCard = ({ friend, handleDeleteFriend }) => {
                 {/* <button type="button" onClick={() => history.push(`/friends/${friend.id}/edit`)}>Edit</button> */}
             </div>
         </div>
-    )
+    )} else {
+        return(
+            <div></div>
+        )
+    }
 }
