@@ -8,11 +8,12 @@ import { useParams, useHistory } from "react-router-dom";
 export const EventEditForm = () => {
     const [event, setEvent] = useState({});
     const [isLoading, setIsLoading] = useState(false);
-    const currentUser=parseInt(sessionStorage.getItem("nutshell_user"))
-
-
+    const currentUser= parseInt(sessionStorage.getItem("nutshell_user"))
+    
     const { eventId } = useParams();
     const history = useHistory();
+
+
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...event };
@@ -20,24 +21,12 @@ export const EventEditForm = () => {
         setEvent(stateToChange);
     };
 
-    //Code in case Drop Downs are needed
-    // const hangdleControlledInputChange = (evt) => {
-
-    //     const newEvent = { ...event }
-    //     let selectedVal = event.target.value
-    //     if (event.target.id.includes("Id")) {
-    //         selectedVal = parseInt(selectedVal)
-    //     }
-    //     newEvent[event.target.id] = selectedVal
-    //     setEvent(newEvent)
-    // }
-
     const updateExistingEvent = evt => {
         evt.preventDefault()
         setIsLoading(true);
 
         const editedEvent = {
-          userId:currentUser,
+            userId: currentUser,
             id: eventId,
             name: event.name,
             date: event.date,
@@ -63,6 +52,7 @@ export const EventEditForm = () => {
         <form>
           <fieldset>
             <div className="formgrid">
+            <label htmlFor="name">Event Name</label>
               <input
                 type="text"
                 required
@@ -71,8 +61,8 @@ export const EventEditForm = () => {
                 id="name"
                 value={event.name}
               />
-              <label htmlFor="name">Event Name</label>
-  
+              
+              <label htmlFor="date">Date</label>
               <input
                 type="text"
                 required
@@ -81,8 +71,8 @@ export const EventEditForm = () => {
                 id="date"
                 value={event.date}
               />
-              <label htmlFor="date">Date</label>
-
+              
+              <label htmlFor="location">Location</label>
               <input
                 type="text"
                 required
@@ -91,7 +81,7 @@ export const EventEditForm = () => {
                 id="location"
                 value={event.location}
               />
-              <label htmlFor="location">Location</label>
+              
             </div>
   
             
