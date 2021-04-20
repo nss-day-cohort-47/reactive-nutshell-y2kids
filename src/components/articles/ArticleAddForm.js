@@ -1,3 +1,5 @@
+/* Author: Micaela
+Purpose: to creact an article object that would be stored in the data base and displayed in the dom*/
 import React, {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import {addArticle} from "../modules/ArticleManager";

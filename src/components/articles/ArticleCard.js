@@ -1,3 +1,5 @@
+/* Author: Micaela
+Purpose: HTML representaion for Article cards*/
 import React from "react"
 import {useHistory} from "react-router-dom"
 import "./ArticleCard.css"
