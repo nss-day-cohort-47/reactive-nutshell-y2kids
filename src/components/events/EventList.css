@@ -1,9 +1,11 @@
-.mainCard {
+div.card:first-of-type {
 background-color: #4a6163;
 margin: 10px;
 border-radius: .25rem;
 font-family: 'Libre Baskerville', serif;
+font:bold;
 }
+
 button.newEvent-bttn{
     background-color: #4a6163;
     color: #fff;

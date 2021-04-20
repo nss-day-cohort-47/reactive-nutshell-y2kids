@@ -1,3 +1,10 @@
+div.card:first-of-type {
+    background-color: #4a6163;
+    margin: 10px;
+    border-radius: .25rem;
+    font-family: 'Libre Baskerville', serif;
+    font:bold;
+    }
 div.eventCard-content{
     background-color: cornsilk;
     margin: 10px;
@@ -17,4 +24,3 @@ div.currentUser-eventCard-content{
     font-family: 'Libre Baskerville', serif;
     border-radius: .25rem;
 }
-

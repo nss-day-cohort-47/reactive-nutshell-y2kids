@@ -8,9 +8,8 @@ button.new-article-bttn{
     color: #fff;
     border-radius: .25rem;
 }
-/* button {
-    background-color: #f17a7e;
+button.btn {
+    background-color: #4a6163;
     color: #E2EDDD;
-    width: 200px;
     border-radius: .25rem;
-} */
+}
