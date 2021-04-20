@@ -53,24 +53,24 @@ export const ArticleAddForm = () => {
                 <h2 className="articleForm__title">New Article</h2>
             <fieldset>
                 <div>
-                    <label>News Title:</label>
+                    <label className="eventFormLabel" >News Title:</label>
                     <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="from-control" placeholder="Article Title" value={article.title} />
                 </div>
             </fieldset>
             <fieldset>
                 <div>
-                    <label>Synopsis:</label>
+                    <label className="eventFormLabel" >Synopsis:</label>
                     <input type="text" id="synopsis" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Synopsis" value={article.synopsis}/>
                 
                 </div>
             </fieldset>
             <fieldset>
                 <div>
-                    <label>URL:</label>
+                    <label className="eventFormLabel" >URL:</label>
                     <input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="URL" value={article.url}/>
                 </div>
             </fieldset>
-                <button className="btn btn-primary" onClick={handleClickSaveArticle}>Save Article</button>
+                <button className="saveArticle" onClick={handleClickSaveArticle}>Save Article</button>
         </form>
         )
     };

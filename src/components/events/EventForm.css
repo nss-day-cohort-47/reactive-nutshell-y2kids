@@ -1,0 +1,11 @@
+button.saveEvent-bttn{
+    background-color: #f17a7e;
+    color: #E2EDDD;
+    width: 200px;
+    border-radius: .25rem;
+    font-family: 'Libre Baskerville', serif;
+}
+h2.eventForm__title{
+    color:#4a6163;
+  font-family: 'Libre Baskerville', serif;
+}

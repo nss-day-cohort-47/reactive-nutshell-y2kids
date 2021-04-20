@@ -1,0 +1,57 @@
+section.currentUser-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #4a6163;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 10px;
+}
+section.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff8dc;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 10px;
+}
+h2.currentUser-article_title{
+    font-family: 'Libre Baskerville', serif;
+    color: #E2EDDD;
+    }
+h2.article_title{
+font-family: 'Libre Baskerville', serif;
+color: #4a6163;
+}
+div.currentUser-article_synopsis{
+    font-family: 'Libre Baskerville', serif;
+    color: #fff;
+}
+div.article_synopsis{
+    font-family: 'Libre Baskerville', serif;
+    color: rgb(0, 0, 0);
+}
+a.card-url{
+    color: #f17a7e;
+    text-decoration: none;
+    background-color: transparent;
+}
+button.delete-bttn{
+    background-color: #f17a7e;
+    color: #E2EDDD;
+    width: 200px;
+    border-radius: .25rem;
+}
+button.edit-bttn{
+    background-color: #f17a7e;
+    color: #E2EDDD;
+    width: 200px;
+    border-radius: .25rem;
+}

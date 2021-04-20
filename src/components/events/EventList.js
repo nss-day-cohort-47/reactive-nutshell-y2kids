@@ -83,7 +83,7 @@ export const EventList = () => {
     if (events) {
         return (
             <>
-                <button type="button" onClick={() => { history.push("/events/create") }}>
+                <button className="newEvent-bttn" type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
              </button>
 
@@ -97,10 +97,9 @@ export const EventList = () => {
                                
             </>
         );
-        } else {
-            return (
-            
-            <button type="button" onClick={() => { history.push("/events/create") }}>
+    } else {
+        return (
+                <button className="newEvent-bttn" type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
             </button>
 

@@ -10,7 +10,7 @@
 }
 
 .receivedMsg {
-    background-color: skyblue;
+    background-color: #f17a7e;
     width: 55%;
     padding: 5px;
     margin: 10px;
@@ -26,7 +26,7 @@
 }
 
 .PMcontainer {
-    background-color: #343a40;
+    background-color: cornsilk;
     width: 60%;
     margin-bottom: 15px;
     margin: auto;
@@ -40,7 +40,8 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #50565c;
+    background-color: #4a6163;
+    border-radius: .25rem;
 }
 
 .nameOfSender {
@@ -52,10 +53,13 @@
 }
 
 #PMinputField {
+    background-color: cornsilk;
     border: solid black 2px;
 }
 
 #sendButton {
     height: 35px;
     width: 80px;
+    background-color:#f17a7e;
+    border-radius: .25rem;
 }
