@@ -24,7 +24,8 @@ export const MessageCard = ({message, handleDeleteMessage}) => {
         getAllFriends()
         .then(friends => {
             const currentFriend = friends.find(friend => friend.userId === message.userId);
-            if (currentFriend )
+            const currentUsersFriends = friends.filter(friend => friend.currentUserId)
+            if (currentFriend === currentUsersFriends)
             {
                 window.alert("Friend already exists, please select a new friend.")
                 return history.push(`/messages`)
