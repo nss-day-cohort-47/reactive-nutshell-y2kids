@@ -15,25 +15,26 @@ export const EventList = () => {
     const history = useHistory();
     
     
-    const getEvents = () => {
-        getAllFriends()
-        .then(friends => {
-            //find current user
-            const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
-            //find the friends associated with the current user
-            const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
-            const currentFriend = friends.filter(friend => friend.userId)
-            const testVar = currentFriend.map(friend => {
-                if (friend.currentUserId === currentUser)
-                return friend.currentUserId})
-            const friendFilter = testVar.filter(friend => friend)
-            const currentUsersFriendsFilter = currentUsersFriends.map(friend => {
-                if (friend.currentUserId === currentUser)
-                return friend.currentUserId})
-            console.log(friendFilter)
-            console.log(currentUsersFriendsFilter)
-            if(friendFilter === currentUsersFriendsFilter)
-            {
+    // getAllFriends()
+    // .then(friends => {
+        //     //find current user
+        //     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+        //     //find the friends associated with the current user
+        //     const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
+        //     const currentFriend = friends.filter(friend => friend.userId)
+        //     const testVar = currentFriend.map(friend => {
+            //         if (friend.currentUserId === currentUser)
+            //         return friend})
+            //     const friendFilter = testVar.filter(friend => friend)
+            //     const currentUsersFriendsFilter = currentUsersFriends.map(friend => {
+                //         if (friend.currentUserId === currentUser)
+                //         return friend.currentUserId})
+                //     console.log(testVar)
+                //     console.log(currentUsersFriends)
+                //     if(friendFilter === currentUsersFriendsFilter)
+                //     {
+                    // })
+            const getEvents = () => {
             return getAllEvents().then(eventsFromAPI => {
                 const sortedEvents = eventsFromAPI.sort((a, b) => {
                     let da = new Date(a.date),
@@ -42,9 +43,7 @@ export const EventList = () => {
                 })
                 setEvents(sortedEvents)       
                 });
-            }
-        })
-    };
+            };
     
     
     const handleDeleteEvent = (id) => {
@@ -107,6 +106,5 @@ export const EventList = () => {
 
         
             )
-        }
-
-};
+        };
+    }
