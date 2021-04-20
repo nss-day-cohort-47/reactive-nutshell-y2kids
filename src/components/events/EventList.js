@@ -12,8 +12,6 @@ import {getAllFriends} from "../modules/FriendManager"
 
 export const EventList = () => {
     const [events, setEvents] = useState([]);
-    const [friends, setFriends] = useState([]);
-    const [mainEvent, setMain] = useState({});
     const history = useHistory();
     
     
@@ -24,8 +22,6 @@ export const EventList = () => {
                 db = new Date(b.date);
                 return da - db;
             })
-            const firstElement = sortedEvents.shift()
-            setMain(firstElement)
             setEvents(sortedEvents)
         });
     };
@@ -36,72 +32,56 @@ export const EventList = () => {
         .then(() => getEvents());
     };
      
-    const checkEventDate = () => {
-        
-        if (mainEvent === true) {
-            let currentDate = new Date().getTime();
-            let eventDate = new Date(mainEvent.date).getTime();
-            let timeDifference = eventDate - currentDate
-            if (timeDifference < 0) {
-                deleteEvent(mainEvent.id)
-            }
-        }
-    }
-    checkEventDate()
     
     // const handleShowWeather = (date, location) => {
         //     showWeather(date, location)
         //     .then(() => weatherDetail())
         // }
         
-        useEffect(() => {
-            getEvents();
+        // useEffect(() => {
+        //     getEvents();
             // getFriends();
             
-        }, []);
+        // }, []);
         
+        
+        // const checkEventDate = () => {
+            
+            //     if (mainEvent === true) {
+                //         let currentDate = new Date().getTime();
+                //         let eventDate = new Date(mainEvent.date).getTime();
+                //         let timeDifference = eventDate - currentDate
+                //         if (timeDifference < 0) {
+                    //             deleteEvent(mainEvent.id)
+                    //         }
+                    //     }
+                    // }
+                    // checkEventDate()
+                    
         getAllFriends()
         .then(friends => {
             //find current user
             const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
             //find the friends associated with the current user
             const currentUsersFriends = friends.filter(friend => friend.currentUserId === currentUser)
-
             console.log(currentUsersFriends)
 
-        }) 
-        
-        if (mainEvent) {
-            return (
+    
+    if (events) {
+        return (
             <>
                 <button type="button" onClick={() => { history.push("/events/create") }}>
                     New Event
              </button>
 
-                <div className="event Component">
-                    <div className="container-cards">
-                        <div className="mainCard">
-                            <h2>Name: {mainEvent.name}</h2>
-                            <h3>Date: {mainEvent.date}</h3>
-                            <h3>Location: {mainEvent.location}</h3>
-                            <h4>User: {mainEvent?.user?.name}</h4>
-
-                            {/* <button type="button" onClick={() => handleShowWeather(mainEvent.date, mainEvent.location)}>Show Weather</button> */}
-
-                            <div className="card-buttons">
-                                <button type="button" onClick={() => history.push(`/events/${mainEvent.id}/edit`)}>Edit</button>
-                                <button type="button" onClick={() => handleDeleteEvent(mainEvent.id)}>Delete</button>
-                            </div>
-                        </div>
+                   
                         {events.map(event =>
                             <EventCard
                                 key={event.id}
                                 event={event}
-                                // handleShowWeather={handleShowWeather}
                                 handleDeleteEvent={handleDeleteEvent} />)}
-                    </div>
-
-                </div>
+                               
+                               
             </>
         );
     } else {

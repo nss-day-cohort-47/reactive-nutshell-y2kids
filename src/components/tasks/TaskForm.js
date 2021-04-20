@@ -5,8 +5,9 @@ import { useHistory } from 'react-router-dom'
 import { addTask } from '../modules/TaskManager'
 
 export const TaskForm = () => {
-    const [task, setTask] = useState({name: ""});
+    const [task, setTask] = useState({name: "", estCompletionDate: ""});
     const history = useHistory();
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const handleInputChange = (event) => {
         const newTask = {...task}
@@ -18,10 +19,9 @@ export const TaskForm = () => {
 
     const handleSaveTask = (event) => {
         event.preventDefault();
-
-        //Add current user's userId as a property before calling addTask
-
-        let task2Add = task;
+        
+        let task2Add = {...task};
+        task2Add.userId = currentUserId
         task2Add.isComplete = false;
         
         addTask(task2Add).then(() => history.push("/tasks"))

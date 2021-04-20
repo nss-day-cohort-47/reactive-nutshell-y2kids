@@ -55,8 +55,7 @@ export const FriendForm = () => {
                     {
                         window.alert("Friend already exists, please select a new friend.")
                         return history.push(`/friends`)
-                    } else if (currentUser === newFriendship.userId)
-                    {
+                    } else if (currentUser === newFriendship.userId){
                         window.alert("you may not add yourself")
                         return history.push(`/friends`)
                     } else {
